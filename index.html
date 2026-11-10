@@ -14,14 +14,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=Mrs+Saint+Delafield&display=swap" rel="stylesheet" />
-  <link rel="preload" as="image" href="assets/cut/hero-frontal.webp" />
-  <link rel="stylesheet" href="css/styles.css?v=20261110a" />
-  <link rel="stylesheet" href="css/sections.css?v=20261110a" />
-  <link rel="stylesheet" href="css/editorial.css?v=20261110a" />
-  <link rel="stylesheet" href="css/editorial-sections.css?v=20261110a" />
-  <link rel="stylesheet" href="css/editorial-social.css?v=20261110a" />
-  <link rel="stylesheet" href="css/animations.css?v=20261110a" />
-  <link rel="stylesheet" href="css/atidoa.css?v=20261110a" />
+  <link rel="preload" as="image" href="assets/img/hero-foto.webp?v=20261110b" />
+  <link rel="stylesheet" href="css/styles.css?v=20261110b" />
+  <link rel="stylesheet" href="css/sections.css?v=20261110b" />
+  <link rel="stylesheet" href="css/editorial.css?v=20261110b" />
+  <link rel="stylesheet" href="css/editorial-sections.css?v=20261110b" />
+  <link rel="stylesheet" href="css/editorial-social.css?v=20261110b" />
+  <link rel="stylesheet" href="css/animations.css?v=20261110b" />
+  <link rel="stylesheet" href="css/atidoa.css?v=20261110b" />
   <script>
     /* Intro con la firma: solo la primera visita de la sesión y sin movimiento reducido */
     (function () {
@@ -71,8 +71,8 @@
               <span class="ln">publicitaria.</span>
             </h1>
           </div>
-          <figure class="ed-hero-portrait" data-hero-portrait>
-            <img src="assets/cut/hero-frontal.webp" alt="Ricardo Arroyo" width="1080" height="986" fetchpriority="high" />
+          <figure class="ed-hero-portrait is-photo" data-hero-portrait>
+            <img src="assets/img/hero-foto.webp?v=20261110b" alt="Ricardo Arroyo sonriendo, de traje negro" width="1672" height="941" fetchpriority="high" />
             <div class="scribble" data-signature="sistema" data-sig-trigger="intro" aria-hidden="true"></div>
           </figure>
           <div class="ed-hero-foot">
@@ -117,6 +117,7 @@
 
     <!-- T · TRANSFORMACIÓN: resultados reales de clientes -->
     <section class="ed-results" id="resultados" data-tone-section="light" aria-labelledby="results-title">
+      <div class="cg-host cg-right" data-charts="line" aria-hidden="true"></div>
       <div class="contour" data-contour aria-hidden="true"></div>
       <div class="wrap">
         <div class="ed-section-head ed-results-head">
@@ -214,9 +215,34 @@
           <ul class="ed-tags"><li>WhatsApp</li><li>Guiones</li><li>Objeciones</li><li>Automatización</li></ul>
         </article>
       </div>
-      <div class="ed-split-figures" aria-hidden="true">
-        <img class="fig-left" src="assets/cut/captar-traje.webp" alt="" width="1056" height="1194" loading="lazy" data-drift-y="1" />
-        <img class="fig-right" src="assets/cut/cerrar-traje.webp" alt="" width="1080" height="1207" loading="lazy" data-drift-y="-1" />
+      <div class="ed-split-visuals" aria-hidden="true">
+        <!-- Captar: anuncio pautado + métricas de campaña -->
+        <div class="ed-device ed-device-ad" data-reveal data-drift-y="1">
+          <div class="ed-phone">
+            <div class="ed-ad-head"><img src="assets/brands/strabe-logo.webp" alt="" width="150" height="150" /><div><b>strabe.co</b><span>Publicidad</span></div></div>
+            <img class="ed-ad-img" src="assets/brands/strabe-4.webp" alt="" width="480" height="640" />
+            <div class="ed-ad-cta"><span>Accesorios para hombre</span><b>Enviar mensaje</b></div>
+          </div>
+          <span class="ed-chip-stat s1"><i>Objetivo</i><b>Mensajes</b></span>
+          <span class="ed-chip-stat s2"><i>Se mide</i><b>Costo por cliente</b></span>
+          <span class="ed-chip-stat s3"><i>Público</i><b>Segmentado</b></span>
+        </div>
+        <!-- Cerrar: chat atendido por IA -->
+        <div class="ed-device ed-device-chat" data-reveal data-drift-y="-1">
+          <div class="ed-phone ed-chat">
+            <div class="ed-chat-head"><span class="ed-chat-avatar">VD</span><div><b>Asistente comercial</b><span>en línea · IA</span></div></div>
+            <div class="ed-chat-body">
+              <p class="msg in-msg" style="--i:0">Hola 👋 vi el anuncio, ¿qué precio tiene la valoración?</p>
+              <p class="msg out-msg" style="--i:1">¡Hola! La valoración cuesta $80.000 y se abona a tu tratamiento. ¿Te queda mejor mañana a las 10:00 a. m. o a las 4:00 p. m.?</p>
+              <p class="msg in-msg" style="--i:2">A las 4:00 p. m. 🙌</p>
+              <p class="msg out-msg" style="--i:3">Listo ✅ Quedó agendada para mañana a las 4:00 p. m. Te envío la ubicación y el link de pago.</p>
+              <p class="msg sys-msg" style="--i:4">Pago recibido · Venta cerrada</p>
+            </div>
+          </div>
+          <span class="ed-chip-stat s4"><i>Respuesta</i><b>en 3 s</b></span>
+          <span class="ed-chip-stat s5"><i>Atención</i><b>24/7</b></span>
+        </div>
+        <p class="ed-visual-note">Ilustración del sistema. El anuncio es una pieza real de Strabe; el chat es un ejemplo.</p>
       </div>
       <ol class="ed-flow" data-reveal aria-label="Flujo del sistema">
         <li>Anuncios</li><li>Conversaciones</li><li>Ventas</li><li>Rentabilidad</li>
@@ -225,6 +251,7 @@
 
     <!-- CALCULADORA · proyección de ventas (modelo de la hoja PROYECCIÓN VENTAS) -->
     <section class="ed-proj" id="calculadora" data-tone-section="dark" aria-labelledby="calc-title">
+      <div class="cg-host cg-right" data-charts="mix" aria-hidden="true"></div>
       <div class="contour" data-contour aria-hidden="true"></div>
       <div class="wrap">
         <div class="ed-section-head">
@@ -277,7 +304,7 @@
       <div class="contour" data-contour aria-hidden="true"></div>
       <div class="ed-mentor-stage">
         <p class="ed-mentor-name" aria-hidden="true" data-parallax="mentor"><span class="row row-serif" data-drift="1">Ricardo</span><span class="row row-bold" data-drift="-1">ARROYO</span></p>
-        <img class="ed-mentor-cut" src="assets/cut/hero-retrato.webp?v=20261110a" alt="Ricardo Arroyo de traje negro" width="1100" height="1430" loading="lazy" />
+        <img class="ed-mentor-cut" src="assets/cut/hero-retrato.webp?v=20261110b" alt="Ricardo Arroyo de traje negro" width="1100" height="1430" loading="lazy" />
         <div class="ed-mentor-sign" data-signature="Ricardo Arroyo" data-sig-flourish aria-hidden="true"></div>
       </div>
       <div class="ed-mentor-body wrap">
@@ -426,6 +453,7 @@
 
     <!-- O · OBJECIONES: para quién es el entrenamiento -->
     <section class="ed-fit" id="para-quien" data-tone-section="dark" aria-labelledby="fit-title">
+      <div class="cg-host cg-right" data-charts="bars" aria-hidden="true"></div>
       <div class="contour" data-contour aria-hidden="true"></div>
       <div class="wrap">
         <div class="ed-section-head">
@@ -493,6 +521,7 @@
 
     <!-- 11 FINAL -->
     <section class="ed-final" id="final" data-final data-tone-section="dark" aria-labelledby="final-title">
+      <div class="cg-host cg-wide" data-charts="line" aria-hidden="true"></div>
       <img class="ed-final-bg" src="assets/gallery/final.webp" alt="" loading="lazy" />
       <div class="ed-final-inner">
         <h2 class="ed-final-title" id="final-title"><i>Haz que tu próxima campaña</i> TENGA UN SISTEMA DETRÁS.</h2>
@@ -565,16 +594,17 @@
   <div class="toast" data-toast role="status" aria-live="polite"></div>
 
   <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
-  <script src="js/config.js?v=20261110a"></script>
-  <script src="js/content.js?v=20261110a"></script>
-  <script src="js/tracking.js?v=20261110a"></script>
-  <script src="js/motion.js?v=20261110a"></script>
-  <script src="js/render.js?v=20261110a"></script>
-  <script src="js/calculator.js?v=20261110a"></script>
-  <script src="js/vsl.js?v=20261110a"></script>
-  <script src="js/offer.js?v=20261110a"></script>
-  <script src="js/editorial.js?v=20261110a"></script>
-  <script src="js/animations.js?v=20261110a"></script>
-  <script src="js/funnel.js?v=20261110a"></script>
+  <script src="js/config.js?v=20261110b"></script>
+  <script src="js/content.js?v=20261110b"></script>
+  <script src="js/tracking.js?v=20261110b"></script>
+  <script src="js/motion.js?v=20261110b"></script>
+  <script src="js/render.js?v=20261110b"></script>
+  <script src="js/calculator.js?v=20261110b"></script>
+  <script src="js/vsl.js?v=20261110b"></script>
+  <script src="js/offer.js?v=20261110b"></script>
+  <script src="js/editorial.js?v=20261110b"></script>
+  <script src="js/charts.js?v=20261110b"></script>
+  <script src="js/animations.js?v=20261110b"></script>
+  <script src="js/funnel.js?v=20261110b"></script>
 </body>
 </html>
