@@ -77,3 +77,6 @@ Estas referencias orientan la estructura; no demuestran una tasa de conversión 
 - Casos publicados con datos del cliente: Dr. Felipe Zambrano (octubre 2026) y Dra. Andrea Mora (reporte semanal). Confirmar autorización de cada cliente para mostrar su nombre y cifras.
 - Pendiente: entrevista de La Cava del Cerdo (Drive bloqueó la descarga por cuota), cifras de B Nova, precio final y hora exacta de la asesoría.
 - Fotos profesionales del Drive: `assets/gallery/profesional.webp` (en la galería) y `assets/gallery/campo.webp` (sin uso por ahora).
+
+## Caché en producción
+GitHub Pages sirve CSS y JS con `Cache-Control: max-age=600`. Para que nadie mezcle un HTML nuevo con un JS viejo, `index.html` carga cada archivo con `?v=AAAAMMDDx`. **En cada despliegue que cambie CSS o JS, sube ese valor** (buscar y reemplazar `?v=` en `index.html`).

@@ -54,11 +54,12 @@
       const values = Object.freeze(Object.fromEntries(inputs.map((i) => [i.name, Number(i.value)])));
       inputs.forEach((i) => {
         i.style.setProperty("--fill", ((i.value - i.min) / (i.max - i.min)) * 100 + "%");
-        out(i.name).textContent = labels[i.name](Number(i.value));
+        const o = out(i.name), fmt = labels[i.name];
+        if (o && fmt) o.textContent = fmt(Number(i.value));
       });
       const r = compute(values);
       animateNumber(res("budget"), r.budget, money.format);
-      animateNumber(res("units"), r.units, (x) => num.format(Math.ceil(x * 10) / 10));
+      animateNumber(res("units"), r.units, (x) => num.format(x));
       animateNumber(res("roas"), r.roas, (x) => x.toFixed(1) + "×");
       animateNumber(res("dayBudget"), r.dayBudget, money.format);
       animateNumber(res("dayOrders"), r.dayOrders, (x) => num.format(x));
