@@ -1,0 +1,247 @@
+/* ==========================================================================
+   ATIDOA · Atención (slogan), Transformación (resultados), Interés (oferta),
+   Deseo (precio y asesoría en vivo), Objeciones (para quién es) y Acción.
+   Se carga al final: sobrescribe el hero y añade las secciones nuevas.
+   ========================================================================== */
+
+/* ---------- A · HERO: el slogan es el protagonista ---------- */
+.ed-hero-slogan {
+  position: absolute; z-index: 3; left: clamp(20px, 4vw, 64px); top: clamp(96px, 13svh, 150px);
+  width: min(62%, 1100px); pointer-events: none; text-shadow: 0 2px 40px rgba(11, 11, 13, .55);
+}
+.ed-hero-kicker { color: var(--gold); margin-bottom: clamp(14px, 2svh, 26px); }
+.ed-slogan {
+  margin: 0; font-family: var(--display); font-stretch: 72%; font-weight: 800; text-transform: uppercase;
+  font-size: clamp(40px, min(6.4vw, 12svh), 140px); line-height: .86; letter-spacing: -.012em; color: var(--white);
+}
+.ed-slogan .ln { display: block; white-space: nowrap; }
+.ed-slogan i { font-family: var(--serif); font-style: normal; font-weight: 400; text-transform: none; letter-spacing: -.03em; color: var(--gold-hi); }
+.ed-slogan .ln-gold { color: var(--gold-hi); }
+.motion-ready .ed-slogan .ln { animation: heroRise 1.2s var(--ease) both; }
+.motion-ready .ed-slogan .ln:nth-child(2) { animation-delay: .08s; }
+.motion-ready .ed-slogan .ln:nth-child(3) { animation-delay: .16s; }
+.motion-ready .ed-slogan .ln:nth-child(4) { animation-delay: .24s; }
+.motion-ready .ed-slogan .ln:nth-child(5) { animation-delay: .32s; }
+/* el retrato pasa a la derecha y tapa el final del texto */
+.ed-scene .ed-hero-portrait, .ed-hero-portrait {
+  left: auto; right: clamp(-40px, -1vw, 0px); height: min(88svh, 980px, 54vw);
+  transform: translateY(calc(var(--hp, 0) * 6%)) scale(calc(1 + var(--hp, 0) * .05)); transform-origin: 70% 100%;
+}
+.ed-hero::before { background: radial-gradient(40% 55% at 76% 62%, rgba(198, 167, 119, .22), rgba(198, 167, 119, .05) 55%, transparent 75%); }
+.ed-hero-copy p { margin: 0; max-width: 38ch; font-size: clamp(14px, 1.1vw, 16px); line-height: 1.55; color: var(--fg-soft); }
+
+/* ---------- T · RESULTADOS ---------- */
+.ed-results { padding: var(--section) 0 clamp(64px, 8vw, 120px); overflow: clip; }
+.ed-results-head .ed-h2 { max-width: 16ch; }
+.ed-case {
+  display: grid; grid-template-columns: minmax(220px, .8fr) minmax(0, 1.6fr); gap: 20px clamp(24px, 4vw, 64px);
+  padding: clamp(32px, 4vw, 56px) 0; border-top: 1px solid var(--rule);
+}
+.ed-case-head { display: flex; gap: 20px; align-items: flex-start; }
+.ed-case-n { font: 400 clamp(40px, 4vw, 64px)/.9 var(--serif); color: var(--accent); }
+.ed-case-head h3 { margin: 0 0 8px; font: 800 clamp(26px, 2.6vw, 40px)/1 var(--display); font-stretch: 75%; text-transform: uppercase; }
+.ed-case-head h3 a { text-decoration: none; }
+.ed-case-head h3 a:hover { color: var(--accent); }
+.ed-case-head p { margin: 0; font-size: 14px; color: var(--fg-soft); }
+.ed-case-ba { display: grid; grid-template-columns: 1fr auto 1.3fr; align-items: end; gap: clamp(14px, 2vw, 32px); }
+.ed-case-ba span { display: block; font: 600 11px/1.3 var(--sans); letter-spacing: .18em; text-transform: uppercase; color: var(--fg-soft); margin-bottom: 10px; }
+.ed-case-ba strong { display: block; font: 800 clamp(38px, 5vw, 84px)/.9 var(--display); font-stretch: 72%; letter-spacing: -.01em; }
+.ba-before strong { color: var(--fg-soft); }
+.ba-after strong { color: var(--accent); }
+.ba-after em { display: block; margin-top: 10px; font-style: normal; font-size: 14px; color: var(--fg-soft); }
+.ba-arrow { font: 300 clamp(36px, 4vw, 64px)/1 var(--sans); color: var(--accent); padding-bottom: .12em; }
+.ed-case-metrics { grid-column: 2; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 8px 0 0; border-top: 1px solid var(--rule); }
+.ed-case-metrics div { padding: 16px 12px 0 0; }
+.ed-case-metrics dt { font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--fg-soft); }
+.ed-case-metrics dd { margin: 6px 0 0; font: 700 clamp(18px, 1.7vw, 24px)/1 var(--sans); }
+.ed-case-note { grid-column: 2; margin: 0; font-size: 14px; line-height: 1.6; color: var(--fg-soft); max-width: 70ch; }
+.ed-case-player {
+  display: flex; align-items: center; gap: 18px; padding: clamp(24px, 3vw, 40px); border-radius: 12px;
+  background: var(--obsidian); color: var(--gold-hi); aspect-ratio: 16 / 7; font-size: 12px; letter-spacing: .16em; text-transform: uppercase;
+  background-image: radial-gradient(60% 90% at 80% 50%, rgba(198, 167, 119, .18), transparent 70%);
+}
+.ed-case-player .vsl-play { width: 64px; height: 64px; flex: none; }
+.ed-case-player .vsl-play:disabled { cursor: default; opacity: .85; }
+.ed-case-player .vsl-play:disabled::before { animation: none; opacity: .3; }
+
+/* Empresas aliadas: cinta tipográfica infinita */
+.ed-allies { margin-top: clamp(56px, 7vw, 110px); }
+.ed-allies-title { text-align: center; margin-bottom: 28px; }
+.ed-allies-row { overflow: hidden; border-top: 1px solid var(--rule); padding: clamp(14px, 1.6vw, 22px) 0; -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+.ed-allies-row:last-of-type { border-bottom: 1px solid var(--rule); }
+.ed-allies-track { display: flex; width: max-content; gap: clamp(28px, 3.4vw, 56px); animation: allies 70s linear infinite; }
+.ed-allies-row.reverse .ed-allies-track { animation-direction: reverse; animation-duration: 80s; }
+.ed-allies-track > * { flex: none; white-space: nowrap; font-size: clamp(26px, 3.2vw, 52px); line-height: 1; }
+.ed-allies-track span { font-family: var(--display); font-stretch: 72%; font-weight: 800; text-transform: uppercase; }
+.ed-allies-track i { font-family: var(--serif); font-style: normal; color: var(--accent); }
+.ed-allies:hover .ed-allies-track { animation-play-state: paused; }
+@keyframes allies { to { transform: translateX(-50%); } }
+
+/* ---------- PROYECCIÓN DE VENTAS ---------- */
+.ed-proj { padding: var(--section) 0; overflow: clip; }
+.ed-proj .ed-h2 { max-width: 18ch; }
+.ed-proj-panel {
+  display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.4fr); border: 1px solid var(--rule); border-radius: 14px; overflow: hidden;
+  background: linear-gradient(160deg, rgba(36, 36, 41, .6), rgba(14, 14, 17, .7));
+}
+.ed-proj-inputs { padding: clamp(26px, 3.4vw, 48px); display: grid; gap: 30px; align-content: start; border-right: 1px solid var(--rule); }
+.ed-proj-out { padding: clamp(26px, 3.4vw, 48px); display: grid; gap: 30px; align-content: start; }
+.ed-proj-kpis { display: grid; grid-template-columns: 1fr 1fr; gap: 0 24px; }
+.ed-proj-kpis > div { padding: 16px 0; border-bottom: 1px solid var(--rule); display: grid; gap: 6px; }
+.ed-proj-kpis span, .ed-proj-daily span { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--fg-soft); }
+.ed-proj-kpis strong { font: 700 clamp(22px, 2.2vw, 32px)/1 var(--sans); font-variant-numeric: tabular-nums; }
+.ed-proj-kpis .kpi-main { grid-column: 1 / -1; padding-top: 0; }
+.ed-proj-kpis .kpi-main strong { font: 800 clamp(44px, 5.6vw, 92px)/.9 var(--display); font-stretch: 72%; color: var(--gold-hi); }
+.ed-proj-block { min-width: 0; overflow-x: auto; }
+.ed-proj-label { margin: 0 0 12px; font: 600 11px/1 var(--sans); letter-spacing: .2em; text-transform: uppercase; color: var(--gold); }
+.ed-proj-table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; font-size: clamp(12px, 1vw, 14px); }
+.ed-proj-table th, .ed-proj-table td { padding: 10px 8px; text-align: right; border-bottom: 1px solid var(--rule); white-space: nowrap; }
+.ed-proj-table thead th { font-weight: 500; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--fg-soft); }
+.ed-proj-table tbody th { text-align: left; font-weight: 500; color: var(--fg-soft); }
+.ed-proj-table tbody tr:last-child td { color: var(--gold-hi); }
+.ed-proj-daily { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.ed-proj-daily > div { display: grid; gap: 8px; }
+.ed-proj-daily strong { font: 700 clamp(17px, 1.6vw, 22px)/1 var(--sans); font-variant-numeric: tabular-nums; }
+.ed-proj .note { margin: 0; font-size: 12px; color: var(--faint); line-height: 1.6; }
+
+/* ---------- I · D · OFERTA ---------- */
+.ed-offer { padding: var(--section) 0; overflow: clip; }
+.ed-offer-grid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(320px, .8fr); gap: clamp(40px, 6vw, 96px); align-items: start; }
+.ed-offer-list { list-style: none; padding: 0; margin: clamp(40px, 5vw, 64px) 0 0; }
+.ed-offer-list li { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 20px; padding: 22px 0; border-top: 1px solid var(--rule); }
+.ed-offer-list b { font: 800 clamp(20px, 2vw, 28px)/1.05 var(--display); font-stretch: 75%; text-transform: uppercase; }
+.ed-offer-list span { color: var(--fg-soft); font-size: 15px; line-height: 1.55; }
+.ed-price {
+  position: sticky; top: 110px; padding: clamp(28px, 3vw, 44px); border-radius: 14px; background: var(--obsidian); color: var(--white);
+  box-shadow: 0 50px 100px -40px rgba(11, 11, 13, .6);
+}
+.ed-price-label { margin: 0; font: 600 11px/1 var(--sans); letter-spacing: .2em; text-transform: uppercase; color: var(--gold); }
+.ed-price-value { margin: 16px 0 0; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 16px; }
+.ed-price-value s { font: 600 clamp(20px, 2vw, 28px)/1 var(--sans); color: rgba(248, 247, 244, .45); }
+.ed-price-value strong { font: 800 clamp(44px, 4.4vw, 80px)/.9 var(--display); font-stretch: 72%; color: var(--gold-hi); }
+.ed-price-today { margin: 14px 0 0; font-size: 14px; line-height: 1.5; color: rgba(248, 247, 244, .7); }
+.ed-live { display: flex; gap: 14px; margin: 28px 0; padding: 18px 0; border-block: 1px solid rgba(233, 226, 215, .12); }
+.ed-live b { display: block; font-size: 15px; margin-bottom: 4px; }
+.ed-live span { font-size: 13px; line-height: 1.5; color: rgba(248, 247, 244, .7); }
+.ed-live-dot { flex: none; width: 10px; height: 10px; margin-top: 5px; border-radius: 50%; background: #e0574f; box-shadow: 0 0 0 0 rgba(224, 87, 79, .6); animation: live 1.8s ease-out infinite; }
+@keyframes live { to { box-shadow: 0 0 0 12px rgba(224, 87, 79, 0); } }
+.ed-price .btn { width: 100%; }
+
+/* ---------- O · PARA QUIÉN ES ---------- */
+.ed-fit { padding: var(--section) 0; overflow: clip; }
+.ed-fit .ed-h2 { max-width: 18ch; }
+.ed-fit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px, 4vw, 64px); }
+.ed-fit-col { border-top: 2px solid var(--gold); padding-top: 26px; }
+.ed-fit-col.no { border-color: var(--rule); }
+.ed-fit-tag { margin: 0 0 20px; font: 800 clamp(26px, 2.6vw, 40px)/1 var(--display); font-stretch: 75%; text-transform: uppercase; }
+.ed-fit-col.no .ed-fit-tag { color: var(--fg-soft); }
+.ed-fit-col ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; }
+.ed-fit-col li { position: relative; padding-left: 30px; font-size: clamp(15px, 1.2vw, 17px); line-height: 1.55; color: var(--fg-soft); }
+.ed-fit-col li::before { content: "✓"; position: absolute; left: 0; top: 0; color: var(--gold); font-weight: 700; }
+.ed-fit-col.no li::before { content: "✕"; color: rgba(248, 247, 244, .35); }
+
+/* ---------- Móvil ---------- */
+@media (max-width: 900px) {
+  .ed-case, .ed-offer-grid, .ed-proj-panel, .ed-fit-grid { grid-template-columns: minmax(0, 1fr); }
+  .ed-case-metrics, .ed-case-note { grid-column: 1; }
+  .ed-proj-inputs { border-right: 0; border-bottom: 1px solid var(--rule); }
+  .ed-price { position: relative; top: 0; }
+}
+/* Pantallas medianas y móviles: texto arriba, retrato abajo */
+@media (max-width: 1100px) {
+  .ed-hero-slogan { top: clamp(88px, 11svh, 120px); width: calc(100% - 2 * clamp(20px, 4vw, 64px)); }
+  .ed-slogan { font-size: min(9.6vw, 7svh); }
+  .ed-scene .ed-hero-portrait, .ed-hero-portrait { left: 50%; right: auto; height: min(44svh, 70vw); bottom: 15svh; transform: translateX(-50%); transform-origin: 50% 100%; }
+  .ed-hero::before { background: radial-gradient(60% 40% at 50% 70%, rgba(198, 167, 119, .2), transparent 75%); }
+}
+@media (max-width: 760px) {
+  .ed-hero-slogan { top: 86px; }
+  .ed-slogan { font-size: min(12.4vw, 6.6svh); }
+  .ed-scene .ed-hero-portrait, .ed-hero-portrait { height: min(42svh, 92vw); bottom: 20svh; }
+  .ed-hero-copy p { font-size: 13px; }
+  .ed-case-ba { grid-template-columns: 1fr; gap: 6px; }
+  .ba-arrow { transform: rotate(90deg); width: max-content; }
+  .ed-case-metrics { grid-template-columns: 1fr 1fr; }
+  .ed-proj-kpis { grid-template-columns: 1fr; }
+  .ed-proj-table { font-size: 11px; }
+  .ed-proj-table th, .ed-proj-table td { padding: 8px 4px; }
+  .ed-proj-daily { grid-template-columns: 1fr; }
+  .ed-offer-list li { grid-template-columns: 1fr; gap: 6px; }
+  .ed-case-player { aspect-ratio: 4 / 3; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ed-allies-track { animation: none; flex-wrap: wrap; width: auto; justify-content: center; }
+  .ed-live-dot { animation: none; }
+  .ed-hero-portrait { transform: none; }
+}
+
+/* Método: "Captar clientes con anuncios" · "Cerrar ventas con IA" */
+.ed-split-title .ed-split-with { font-size: clamp(30px, 3.6vw, 60px); margin-top: .18em; line-height: 1; }
+/* Figuras de traje negro: más anchas, un poco más bajas y separadas */
+.ed-split-figures { height: clamp(320px, 40vw, 620px); gap: clamp(8px, 3vw, 48px); }
+.ed-split-figures img { filter: saturate(.95) contrast(1.04); }
+@media (max-width: 760px) { .ed-split-figures { height: 46vw; gap: 2vw; } }
+/* el encuadre original corta los hombros por los lados: se funden también en horizontal */
+.ed-split-figures .fig-right, .ed-split-figures .fig-left {
+  -webkit-mask-image: linear-gradient(180deg, #000 74%, transparent 97%), linear-gradient(90deg, transparent 0, #000 9%, #000 91%, transparent 100%);
+  mask-image: linear-gradient(180deg, #000 74%, transparent 97%), linear-gradient(90deg, transparent 0, #000 9%, #000 91%, transparent 100%);
+  -webkit-mask-composite: source-in; mask-composite: intersect;
+}
+
+/* ---------- EMPRESAS DE RICARDO (sustituye "Qué pasa en redes") ---------- */
+.ed-brands-sec { padding: var(--section) var(--gutter); overflow: clip; display: grid; gap: clamp(56px, 8vw, 120px); }
+.ed-brands-sec .ed-social-head { text-align: center; }
+.ed-brands-sec .ed-social-head .ed-lead { margin: 22px auto 0; text-align: center; }
+.ed-brands-sec .ed-h2 { max-width: 16ch; margin-inline: auto; }
+.ed-brand {
+  display: grid; grid-template-columns: minmax(260px, .8fr) minmax(0, 1.4fr); align-items: center; gap: clamp(24px, 4vw, 64px);
+  max-width: 1320px; width: 100%; margin: 0 auto; padding-top: clamp(40px, 5vw, 72px); border-top: 1px solid var(--rule);
+}
+.ed-brand.flip .ed-brand-info { order: 2; }
+.ed-brand-logo { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; box-shadow: 0 0 0 1px var(--rule), 0 12px 30px -12px rgba(20, 20, 22, .4); }
+.ed-brand-tag { margin: 22px 0 8px; font: 600 11px/1 var(--sans); letter-spacing: .22em; text-transform: uppercase; color: var(--accent); }
+.ed-brand-name { margin: 0; font: 800 clamp(56px, 7vw, 120px)/.86 var(--display); font-stretch: 72%; text-transform: uppercase; }
+.ed-brand-line { margin: 18px 0 0; max-width: 36ch; font-size: clamp(15px, 1.2vw, 17px); line-height: 1.55; color: var(--fg-soft); }
+.ed-brand-facts { list-style: none; padding: 0; margin: 20px 0 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.ed-brand-facts li { padding: 7px 12px; border: 1px solid var(--rule); border-radius: 999px; font: 600 10px/1 var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--fg-soft); }
+.ed-brand-link { display: inline-block; margin-top: 24px; font: 400 clamp(20px, 1.8vw, 26px)/1 var(--serif); color: var(--fg); text-decoration: none; border-bottom: 1px solid var(--accent); padding-bottom: 4px; }
+.ed-brand-link:hover { color: var(--accent); }
+.ed-brand-fan { --card-w: clamp(130px, 13vw, 210px); --spread: clamp(60px, 8vw, 130px); height: calc(var(--card-w) * 16 / 9 + 60px); }
+.ed-brand-fan .ed-card { aspect-ratio: 9 / 16; border-radius: clamp(14px, 1.6vw, 24px); }
+@media (max-width: 900px) {
+  .ed-brand, .ed-brand.flip { grid-template-columns: minmax(0, 1fr); }
+  .ed-brand.flip .ed-brand-info { order: 0; }
+  .ed-brand-info { text-align: center; display: grid; justify-items: center; }
+  .ed-brand-line { margin-inline: auto; }
+  .ed-brand-facts { justify-content: center; }
+}
+@media (max-width: 760px) {
+  .ed-brand-fan { --card-w: 34vw; --spread: 14vw; height: calc(var(--card-w) * 16 / 9 + 40px); }
+}
+.ed-brand.flip { grid-template-columns: minmax(0, 1.4fr) minmax(260px, .8fr); }
+@media (max-width: 900px) { .ed-brand.flip { grid-template-columns: minmax(0, 1fr); } }
+
+/* ---------- DETRÁS DEL MÉTODO · versión simple ---------- */
+.ed-behind { padding: var(--section) 0; overflow: clip; }
+.ed-behind .ed-gallery-title { margin: 0; font-size: clamp(52px, 9vw, 150px); }
+.ed-behind-quote { max-width: 30ch; margin: clamp(28px, 3vw, 44px) auto clamp(48px, 6vw, 88px); text-align: center; }
+.ed-behind-quote p { margin: 0; font: 400 clamp(26px, 3vw, 46px)/1.15 var(--serif); color: var(--fg); }
+.ed-behind-quote b { font-weight: 400; color: var(--accent); }
+.ed-behind-quote cite { display: block; margin-top: 18px; font: 600 11px/1 var(--sans); font-style: normal; letter-spacing: .22em; text-transform: uppercase; color: var(--fg-soft); }
+.ed-behind-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(14px, 2vw, 28px); align-items: start; }
+.ed-behind-row .ed-shot:nth-child(2) { margin-top: clamp(24px, 4vw, 64px); }
+.ed-behind-row .ed-shot figcaption { margin: 14px 0 0; }
+@media (max-width: 760px) {
+  .ed-behind-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ed-behind-row .ed-shot:nth-child(2) { margin-top: 0; }
+  .ed-behind-row .ed-shot:nth-child(3) { grid-column: 1 / -1; }
+  .ed-behind-row .ed-shot:nth-child(3) :is(img, video) { aspect-ratio: 16 / 10; }
+}
+
+/* ---------- Bloque de autoridad: Ricardo → Detrás del método → Sus empresas ---------- */
+.ed-behind { padding: clamp(72px, 9vw, 130px) 0 clamp(24px, 3vw, 48px); }
+.ed-behind-kicker { text-align: center; margin-bottom: 0; }
+.ed-behind-quote { margin-top: clamp(18px, 2vw, 28px); }
+.ed-behind + .ed-brands-sec { padding-top: clamp(64px, 8vw, 120px); }
+.ed-behind + .ed-brands-sec .ed-brand:first-of-type { border-top: 0; }
+.ed-stats strong { white-space: nowrap; }

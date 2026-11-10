@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Vendo Desaparece · Ricardo Arroyo</title>
-  <meta name="description" content="Vendo Desaparece, el sistema de Ricardo Arroyo para captar clientes con pauta en Meta, convertir conversaciones en ventas con atención comercial e inteligencia artificial, y medir la rentabilidad." />
+  <title>Vende o Desaparece · Ricardo Arroyo</title>
+  <meta name="description" content="Vende o Desaparece, el sistema de Ricardo Arroyo para captar clientes con pauta en Meta, convertir conversaciones en ventas con atención comercial e inteligencia artificial, y medir la rentabilidad." />
   <meta name="theme-color" content="#0B0B0D" />
-  <meta property="og:title" content="Vendo Desaparece · Ricardo Arroyo" />
+  <meta property="og:title" content="Vende o Desaparece · Ricardo Arroyo" />
   <meta property="og:description" content="Si tu negocio no vende por redes sociales, está condenado a desaparecer." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="assets/gallery/mentoria.webp" />
@@ -21,6 +21,7 @@
   <link rel="stylesheet" href="css/editorial-sections.css" />
   <link rel="stylesheet" href="css/editorial-social.css" />
   <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/atidoa.css" />
   <script>
     /* Intro con la firma: solo la primera visita de la sesión y sin movimiento reducido */
     (function () {
@@ -36,15 +37,16 @@
   <a class="skip" href="#main">Saltar al contenido</a>
 
   <header class="nav ed-nav" data-nav>
-    <a href="#top" class="ed-logo" aria-label="Vendo Desaparece, inicio">
+    <a href="#top" class="ed-logo" aria-label="Vende o Desaparece, inicio">
       <span class="mono">VD</span>
-      <span class="ed-logo-word"><i>Vendo</i> DESAPARECE</span>
+      <span class="ed-logo-word"><i>Vende o</i> DESAPARECE</span>
     </a>
     <nav class="nav-links" aria-label="Secciones">
+      <a href="#resultados">Resultados</a>
       <a href="#metodo">Método</a>
+      <a href="#calculadora">Proyección</a>
       <a href="#ricardo">Ricardo</a>
-      <a href="#programa">Programa</a>
-      <a href="#acceso">Acceso</a>
+      <a href="#oferta">Oferta</a>
     </nav>
     <button class="ed-chip" data-cta="nav">
       <span data-show="b">Aplicar</span><span data-show="a">Acceder</span>
@@ -59,9 +61,15 @@
         <!-- 01 HERO: capa superior que se encoge con el scroll y da paso al video -->
         <div class="ed-hero" data-hero>
           <div class="contour" data-contour aria-hidden="true"></div>
-          <div class="ed-hero-name" aria-hidden="true" data-parallax="hero">
-            <span class="row row-serif" data-drift="-1">Vendo</span>
-            <span class="row row-bold" data-drift="1">DESAPARECE</span>
+          <div class="ed-hero-slogan">
+            <p class="ed-kicker ed-hero-kicker">Vende o Desaparece · Ricardo Arroyo</p>
+            <h1 id="hero-title" class="ed-slogan">
+              <span class="ln">El sistema que</span>
+              <span class="ln">te ayuda a <i>facturar</i></span>
+              <span class="ln ln-gold"><i>más de</i> $10,000</span>
+              <span class="ln">con pauta</span>
+              <span class="ln">publicitaria.</span>
+            </h1>
           </div>
           <figure class="ed-hero-portrait" data-hero-portrait>
             <img src="assets/cut/hero-frontal.webp" alt="Ricardo Arroyo" width="1080" height="986" fetchpriority="high" />
@@ -69,8 +77,7 @@
           </figure>
           <div class="ed-hero-foot">
             <div class="ed-hero-copy">
-              <p class="ed-kicker">Ricardo Arroyo · @el_ridam</p>
-              <h1 id="hero-title">El sistema que te ayuda a facturar <em>más de $10,000</em> con pauta publicitaria.</h1>
+              <p>Pauta en Meta, atención comercial con inteligencia artificial y números claros para vender todos los días.</p>
             </div>
             <div class="hero-cta ed-hero-cta">
               <button class="btn btn-gold" data-cta="hero"><span data-show="b">Quiero aplicar</span><span data-show="a">Quiero acceder</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
@@ -104,52 +111,165 @@
     <!-- 03 MANIFIESTO -->
     <section class="ed-manifesto" id="manifiesto" data-tone-section="dark" aria-label="Manifiesto">
       <div class="contour" data-contour aria-hidden="true"></div>
-      <p class="ed-badge" data-reveal aria-hidden="true"><span>VD</span>Vendo Desaparece · Pasto, Colombia</p>
+      <p class="ed-badge" data-reveal aria-hidden="true"><span>VD</span>Vende o Desaparece · Pasto, Colombia</p>
       <p class="ed-statement" data-split>Si tu negocio no vende por redes sociales, está condenado a <em>desaparecer.</em> No basta con una buena <em>campaña.</em> Necesitas un <em>sistema.</em></p>
+    </section>
+
+    <!-- T · TRANSFORMACIÓN: resultados reales de clientes -->
+    <section class="ed-results" id="resultados" data-tone-section="light" aria-labelledby="results-title">
+      <div class="contour" data-contour aria-hidden="true"></div>
+      <div class="wrap">
+        <div class="ed-section-head ed-results-head">
+          <p class="ed-kicker" data-reveal>Resultados de clientes</p>
+          <h2 class="ed-h2" id="results-title" data-reveal><i>Antes,</i> PAUTA SIN SISTEMA. <i>Después,</i> VENTAS MEDIDAS.</h2>
+        </div>
+
+        <article class="ed-case" data-reveal>
+          <header class="ed-case-head">
+            <span class="ed-case-n">01</span>
+            <div>
+              <h3><a href="https://www.instagram.com/dr.felipe.zambrano/" target="_blank" rel="noopener">Dr. Felipe Zambrano</a></h3>
+              <p>Tricología y trasplante capilar · Octubre 2026</p>
+            </div>
+          </header>
+          <div class="ed-case-ba">
+            <div class="ba-before"><span>Invirtió en pauta</span><strong data-count>$511.633</strong></div>
+            <span class="ba-arrow" aria-hidden="true">→</span>
+            <div class="ba-after"><span>Vendió</span><strong data-count>$7.300.000</strong><em>+ $10.000.000 en cierres pendientes de pago</em></div>
+          </div>
+          <dl class="ed-case-metrics">
+            <div><dt>Consultas</dt><dd>17</dd></div>
+            <div><dt>Tasa de cierre</dt><dd>58,8 %</dd></div>
+            <div><dt>Costo por cliente potencial</dt><dd>$26.928</dd></div>
+            <div><dt>Costo por adquisición</dt><dd>$73.090</dd></div>
+          </dl>
+          <p class="ed-case-note">Ventas cerradas: capilar $6.300.000, farmacológico y productos $700.000, spa capilar $300.000. Valor de consultas aparte: $1.615.000.</p>
+        </article>
+
+        <article class="ed-case" data-reveal>
+          <header class="ed-case-head">
+            <span class="ed-case-n">02</span>
+            <div>
+              <h3>Dra. Andrea Mora</h3>
+              <p>Armonización orofacial · Reporte de una semana</p>
+            </div>
+          </header>
+          <div class="ed-case-ba">
+            <div class="ba-before"><span>Invirtió en pauta</span><strong data-count>$330.725</strong></div>
+            <span class="ba-arrow" aria-hidden="true">→</span>
+            <div class="ba-after"><span>Abrió</span><strong data-count>148</strong><em>conversaciones con clientes potenciales</em></div>
+          </div>
+          <dl class="ed-case-metrics">
+            <div><dt>Diseño de sonrisa</dt><dd>70</dd></div>
+            <div><dt>Servicios generales</dt><dd>51</dd></div>
+            <div><dt>Bótox</dt><dd>27</dd></div>
+            <div><dt>Costo por conversación</dt><dd>$2.235</dd></div>
+          </dl>
+          <p class="ed-case-note">Esa semana: 2 pacientes nuevos de ortodoncia, 3 de bótox y 2 diseños de sonrisa en proceso.</p>
+        </article>
+
+        <article class="ed-case ed-case-video" data-reveal>
+          <header class="ed-case-head">
+            <span class="ed-case-n">03</span>
+            <div>
+              <h3>La Cava del Cerdo</h3>
+              <p>Entrevista · Su experiencia trabajando con nosotros</p>
+            </div>
+          </header>
+          <div class="ed-case-player" data-testimonial-video>
+            <button class="vsl-play" disabled aria-label="Entrevista en video, próximamente"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></button>
+            <span>Entrevista en video · próximamente</span>
+          </div>
+        </article>
+      </div>
+
+      <div class="ed-allies" aria-labelledby="allies-title">
+        <p class="ed-kicker ed-allies-title" id="allies-title" data-reveal>Empresas que confían en nosotros</p>
+        <div class="ed-allies-row" aria-hidden="true"><div class="ed-allies-track">
+          <span>Bizantino</span><i>Herencia</i><span>La Cava del Cerdo</span><i>Jhon Taquez</i><span>B Nova</span><i>Avetur</i><span>Consentida</span><i>Pescador</i><span>Tienda Túquerres</span><i>Victoria Láser</i><span>Armon</span><i>Doctor Felipe</i><span>El Faro y Encanto</span><i>Divas</i><span>Genese</span><i>Sanare · Dr. Fabián</i>
+        </div></div>
+        <div class="ed-allies-row reverse" aria-hidden="true"><div class="ed-allies-track">
+          <i>San Remo</i><span>Cebiches de la Rumiñahui</span><i>Kroquetto</i><span>Sarana</span><i>Quore</i><span>Santina</span><i>Entre Nieblas</i><span>Magnum</span><i>Strabe</i><span>Tienda de Muebles</span><i>Cofines</i><span>Oftalmóloga</span><i>Doc. Álvaro Noguera</i><span>Soraya</span><i>Dra. Constanza</i><span>Alpha Lavandería</span><i>Taty Restrepo Custom</i>
+        </div></div>
+        <ul class="sr-only">
+          <li>Bizantino</li><li>Herencia</li><li>La Cava del Cerdo</li><li>Jhon Taquez</li><li>B Nova</li><li>Avetur</li><li>Consentida</li><li>Pescador</li><li>Tienda Túquerres</li><li>Victoria Láser</li><li>Armon</li><li>Doctor Felipe</li><li>El Faro y Encanto</li><li>Divas</li><li>Genese</li><li>Sanare · Dr. Fabián</li><li>San Remo</li><li>Cebiches de la Rumiñahui</li><li>Kroquetto</li><li>Sarana</li><li>Quore</li><li>Santina</li><li>Entre Nieblas</li><li>Magnum</li><li>Strabe</li><li>Tienda de Muebles</li><li>Cofines</li><li>Oftalmóloga</li><li>Doc. Álvaro Noguera</li><li>Soraya</li><li>Dra. Constanza</li><li>Alpha Lavandería</li><li>Taty Restrepo Custom</li>
+        </ul>
+      </div>
     </section>
 
     <!-- 04 MÉTODO: CAPTAR / CERRAR -->
     <section class="ed-split" id="metodo" data-tone-section="light" aria-labelledby="metodo-title">
       <div class="contour" data-contour aria-hidden="true"></div>
-      <h2 class="sr-only" id="metodo-title">El método: captar y cerrar</h2>
+      <h2 class="sr-only" id="metodo-title">El método: captar clientes con anuncios y cerrar ventas con IA</h2>
       <div class="ed-split-heads">
         <article class="ed-split-col" data-reveal>
-          <p class="ed-split-title"><i>Captar</i><b>CLIENTES</b></p>
+          <p class="ed-split-title"><i>Captar</i><b>CLIENTES</b><i class="ed-split-with">con anuncios</i></p>
           <p>Anuncios estratégicos en Meta para abrir conversaciones con personas que de verdad pueden comprarte.</p>
           <ul class="ed-tags"><li>Estrategia</li><li>Segmentación</li><li>Anuncios</li><li>Costo por cliente</li></ul>
         </article>
-        <span class="ed-split-scribble" aria-hidden="true">con IA</span>
+        <span class="ed-split-scribble" aria-hidden="true">y</span>
         <article class="ed-split-col" data-reveal style="--d:.12s">
-          <p class="ed-split-title"><i>Cerrar</i><b>VENTAS</b></p>
+          <p class="ed-split-title"><i>Cerrar</i><b>VENTAS</b><i class="ed-split-with">con IA</i></p>
           <p>Atención por WhatsApp, seguimiento y cierre, con inteligencia artificial respondiendo para vender 24/7.</p>
           <ul class="ed-tags"><li>WhatsApp</li><li>Guiones</li><li>Objeciones</li><li>Automatización</li></ul>
         </article>
       </div>
       <div class="ed-split-figures" aria-hidden="true">
-        <img class="fig-left" src="assets/cut/captar-retrato.webp" alt="" width="578" height="1155" loading="lazy" data-drift-y="1" />
-        <img class="fig-right" src="assets/cut/cerrar-retrato.webp" alt="" width="844" height="1476" loading="lazy" data-drift-y="-1" />
+        <img class="fig-left" src="assets/cut/captar-traje.webp" alt="" width="1056" height="1194" loading="lazy" data-drift-y="1" />
+        <img class="fig-right" src="assets/cut/cerrar-traje.webp" alt="" width="1080" height="1207" loading="lazy" data-drift-y="-1" />
       </div>
       <ol class="ed-flow" data-reveal aria-label="Flujo del sistema">
         <li>Anuncios</li><li>Conversaciones</li><li>Ventas</li><li>Rentabilidad</li>
       </ol>
     </section>
 
-    <!-- 05 GALERÍA -->
-    <section class="ed-gallery" id="detras" data-tone-section="light" aria-labelledby="gallery-title">
+    <!-- CALCULADORA · proyección de ventas (modelo de la hoja PROYECCIÓN VENTAS) -->
+    <section class="ed-proj" id="calculadora" data-tone-section="dark" aria-labelledby="calc-title">
       <div class="contour" data-contour aria-hidden="true"></div>
-      <h2 class="ed-gallery-title" id="gallery-title" data-reveal><i>Detrás</i> DEL MÉTODO</h2>
-      <figure class="ed-shot s1" data-speed=".06"><figcaption>Clase · El método 0.8 / 1 / 1.5</figcaption><img src="assets/gallery/clase.webp" alt="Ricardo explicando en un tablero su método para clasificar colaboradores" loading="lazy" width="787" height="1400" /></figure>
-      <figure class="ed-shot s2" data-speed="-.04"><figcaption>Pasto · Nuevo punto Herencia</figcaption><video data-loop muted loop playsinline preload="none" poster="assets/gallery/obra.webp" aria-label="Ricardo en la obra del nuevo punto de Herencia Restaurante"><source src="assets/video/obra.mp4" type="video/mp4" /></video></figure>
-      <blockquote class="ed-quote q1" data-reveal>
-        <p>“Los anuncios publicitarios han sido el <b>motor</b> para que mi empresa crezca todos los días.”</p>
-        <cite>Ricardo Arroyo</cite>
-      </blockquote>
-      <figure class="ed-shot s3" data-speed=".08"><figcaption>Mentoría · Vendo Desaparece</figcaption><img src="assets/gallery/mentoria.webp" alt="Ricardo Arroyo de traje negro" loading="lazy" width="787" height="1400" /></figure>
-      <figure class="ed-shot s4" data-speed="-.05"><figcaption>Detrás de cámara</figcaption><video data-loop muted loop playsinline preload="none" poster="assets/gallery/set.webp" aria-label="Ricardo de traje con una cámara de cine"><source src="assets/video/set.mp4" type="video/mp4" /></video></figure>
-      <blockquote class="ed-quote q2" data-reveal>
-        <p>Hay colaboradores que restan, otros que cumplen y otros que <b>multiplican</b> tu empresa.</p>
-        <cite>Del método 0.8 / 1 / 1.5</cite>
-      </blockquote>
+      <div class="wrap">
+        <div class="ed-section-head">
+          <p class="ed-kicker" data-reveal>Proyección de ventas</p>
+          <h2 class="ed-h2" id="calc-title" data-reveal><i>Define tu meta.</i> NOSOTROS TE DAMOS LOS NÚMEROS.</h2>
+        </div>
+        <div class="ed-proj-panel" data-calc data-reveal>
+          <form class="ed-proj-inputs" aria-label="Tu meta de ventas" onsubmit="return false">
+            <label class="field-range"><span>Meta de facturación del mes</span><output data-out="goal"></output>
+              <input type="range" name="goal" min="5000000" max="300000000" step="1000000" value="33000000" /></label>
+            <label class="field-range"><span>Ticket promedio de venta</span><output data-out="ticket"></output>
+              <input type="range" name="ticket" min="50000" max="20000000" step="50000" value="1000000" /></label>
+            <label class="field-range"><span>Costo por venta (CPA)</span><output data-out="cpa"></output>
+              <input type="range" name="cpa" min="5000" max="1000000" step="5000" value="100000" /></label>
+            <label class="field-range"><span>Días para vender</span><output data-out="days"></output>
+              <input type="range" name="days" min="7" max="60" step="1" value="30" /></label>
+          </form>
+          <div class="ed-proj-out" aria-live="polite">
+            <div class="ed-proj-kpis">
+              <div class="kpi-main"><span>Presupuesto de anuncios</span><strong data-r="budget">—</strong></div>
+              <div><span>Ventas necesarias</span><strong data-r="units">—</strong></div>
+              <div><span>ROAS</span><strong data-r="roas">—</strong></div>
+            </div>
+            <div class="ed-proj-block">
+              <p class="ed-proj-label">Plan por semana</p>
+              <table class="ed-proj-table">
+                <thead><tr><th scope="col"></th><th scope="col">Semana 1</th><th scope="col">Semana 2</th><th scope="col">Semana 3</th><th scope="col">Semana 4</th></tr></thead>
+                <tbody>
+                  <tr><th scope="row">Anuncios</th><td data-w="ads"></td><td data-w="ads"></td><td data-w="ads"></td><td data-w="ads"></td></tr>
+                  <tr><th scope="row">Ventas</th><td data-w="sales"></td><td data-w="sales"></td><td data-w="sales"></td><td data-w="sales"></td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="ed-proj-block">
+              <p class="ed-proj-label">Cada día</p>
+              <div class="ed-proj-daily">
+                <div><span>Presupuesto diario</span><strong data-r="dayBudget">—</strong></div>
+                <div><span>Pedidos diarios</span><strong data-r="dayOrders">—</strong></div>
+                <div><span>Facturación diaria</span><strong data-r="dayRevenue">—</strong></div>
+              </div>
+            </div>
+            <p class="note">Proyección con base en tus supuestos: ventas necesarias = meta ÷ ticket, presupuesto = ventas × CPA. No es un resultado garantizado; depende de tu oferta, tu atención comercial y la ejecución.</p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- 06 RICARDO -->
@@ -171,14 +291,86 @@
             <div><strong>+1.000 M</strong><span>invertidos en pauta publicitaria</span></div>
             <div><strong>+40</strong><span>colaboradores en su empresa</span></div>
           </div>
-          <ul class="ed-brands" data-reveal>
-            <li><a href="https://www.instagram.com/herenciarestaurantepasto/" target="_blank" rel="noopener">Herencia Restaurante</a></li>
-            <li><a href="https://www.instagram.com/strabe.co/" target="_blank" rel="noopener">Strabe</a></li>
-            <li><a href="https://www.instagram.com/armon_studio/" target="_blank" rel="noopener">Armon Studio</a></li>
-            <li><a href="https://www.instagram.com/el_ridam/" target="_blank" rel="noopener">@el_ridam</a></li>
-          </ul>
         </div>
       </div>
+    </section>
+
+    <!-- 06b CÓMO TRABAJA: cita + tres fotos (transición entre Ricardo y sus empresas) -->
+    <section class="ed-behind" id="detras" data-tone-section="light" aria-labelledby="gallery-title">
+      <div class="contour" data-contour aria-hidden="true"></div>
+      <div class="wrap">
+        <p class="ed-kicker ed-behind-kicker" id="gallery-title" data-reveal>Detrás del método</p>
+        <blockquote class="ed-behind-quote" data-reveal>
+          <p>“Los anuncios publicitarios han sido el <b>motor</b> para que mi empresa crezca todos los días.”</p>
+          <cite>Ricardo Arroyo</cite>
+        </blockquote>
+        <div class="ed-behind-row">
+          <figure class="ed-shot"><img src="assets/gallery/clase.webp" alt="Ricardo explicando en un tablero su método para clasificar colaboradores" loading="lazy" width="787" height="1400" /><figcaption>Clase · El método 0.8 / 1 / 1.5</figcaption></figure>
+          <figure class="ed-shot"><img src="assets/gallery/profesional.webp" alt="Ricardo Arroyo de camisa negra junto a un carro" loading="lazy" width="1087" height="1600" /><figcaption>Ricardo Arroyo · Fundador</figcaption></figure>
+          <figure class="ed-shot"><video data-loop muted loop playsinline preload="none" poster="assets/gallery/set.webp" aria-label="Ricardo de traje con una cámara de cine"><source src="assets/video/set.mp4" type="video/mp4" /></video><figcaption>Detrás de cámara</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06c SUS EMPRESAS: la prueba de que el sistema funciona -->
+    <section class="ed-brands-sec" id="empresas" data-tone-section="light" aria-labelledby="brands-title">
+      <div class="contour" data-contour aria-hidden="true"></div>
+      <div class="ed-social-head">
+        <p class="ed-kicker" data-reveal>Sus empresas</p>
+        <h2 class="ed-h2" id="brands-title" data-reveal><i>El sistema</i> FUNCIONA EN SUS NEGOCIOS.</h2>
+        <p class="ed-lead" data-reveal>Ricardo no enseña teoría: aplica la misma pauta y la misma atención comercial en sus propias marcas.</p>
+      </div>
+      <article class="ed-brand" id="empresa-armon">
+        <div class="ed-brand-info" data-reveal>
+          <img class="ed-brand-logo" src="assets/brands/armon-logo.webp" alt="Logo de Armon" width="150" height="150" loading="lazy" />
+          <p class="ed-brand-tag">Marketing digital</p>
+          <h3 class="ed-brand-name">Armon</h3>
+          <p class="ed-brand-line">Su agencia: aquí se crean y se pautan las campañas de nuestros clientes.</p>
+          <ul class="ed-brand-facts"><li>+1.000 M invertidos en pauta</li><li>+30 empresas activas</li></ul>
+          <a class="ed-brand-link" href="https://www.instagram.com/armon_studio/" target="_blank" rel="noopener">@armon_studio <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="ed-fan ed-brand-fan" data-fan>
+          <a class="ed-card" style="--n:-2;--a:2" href="https://www.instagram.com/dr.felipe.zambrano/reel/Da6WKJWRfo3/" target="_blank" rel="noopener"><img src="assets/brands/armon-3.webp" alt="Pieza para la clínica del Dr. Felipe Zambrano" width="360" height="640" loading="lazy" /></a>
+          <a class="ed-card" style="--n:-1;--a:1" href="https://www.instagram.com/strabe.co/reel/DaTuQanpcEA/" target="_blank" rel="noopener"><img src="assets/brands/armon-5.webp" alt="Pieza para Strabe: pulsera sobre fondo negro" width="360" height="640" loading="lazy" /></a>
+          <a class="ed-card" style="--n:0;--a:0" href="https://www.instagram.com/armon_studio/reel/DeDMLzAug0p/" target="_blank" rel="noopener"><img src="assets/brands/armon-1.webp" alt="Pieza de Armon: empresaria con su portátil" width="360" height="640" loading="lazy" /></a>
+          <a class="ed-card" style="--n:1;--a:1" href="https://www.instagram.com/benova_bellezaeinnovacion/reel/DalvyNThk1m/" target="_blank" rel="noopener"><img src="assets/brands/armon-4.webp" alt="Pieza para B Nova: tratamiento facial" width="360" height="640" loading="lazy" /></a>
+          <a class="ed-card" style="--n:2;--a:2" href="https://www.instagram.com/el_julio_chicaiza/p/DcKFm4coA7d/" target="_blank" rel="noopener"><img src="assets/brands/armon-2.webp" alt="Pieza publicitaria deportiva en azul" width="360" height="640" loading="lazy" /></a>
+        </div>
+      </article>
+      <article class="ed-brand flip" id="empresa-herencia">
+        <div class="ed-brand-info" data-reveal>
+          <img class="ed-brand-logo" src="assets/brands/herencia-logo.webp" alt="Logo de Herencia" width="150" height="150" loading="lazy" />
+          <p class="ed-brand-tag">Restaurante · Pasto</p>
+          <h3 class="ed-brand-name">Herencia</h3>
+          <p class="ed-brand-line">Laboratorio de cocina colombiana, con nuevo punto en la Avenida de los Estudiantes.</p>
+          <ul class="ed-brand-facts"><li>17,2 mil seguidores</li><li>Pasto, Colombia</li></ul>
+          <a class="ed-brand-link" href="https://www.instagram.com/herenciarestaurantepasto/" target="_blank" rel="noopener">@herenciarestaurantepasto <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="ed-fan ed-brand-fan" data-fan>
+          <a class="ed-card" style="--n:-2;--a:2" href="https://www.instagram.com/herenciarestaurantepasto/reel/De2DvD-DwFy/" target="_blank" rel="noopener"><img src="assets/brands/herencia-7.webp" alt="Clienta de Herencia con café y postre" width="360" height="640" loading="lazy" /></a>
+          <a class="ed-card" style="--n:-1;--a:1" href="https://www.instagram.com/herenciarestaurantepasto/reel/DfaHNivinCY/" target="_blank" rel="noopener"><img src="assets/brands/herencia-2.webp" alt="Fachada con el letrero de Herencia" width="360" height="640" loading="lazy" /></a>
+          <a class="ed-card" style="--n:0;--a:0" href="https://www.instagram.com/herenciarestaurantepasto/reel/Dfh0XEvuen_/" target="_blank" rel="noopener"><img src="assets/brands/herencia-1.webp" alt="Ricardo y su socio con casco en la obra del nuevo punto" width="360" height="640" loading="lazy" /></a>
+          <a class="ed-card" style="--n:1;--a:1" href="https://www.instagram.com/herenciarestaurantepasto/p/DaGezA5FXwI/" target="_blank" rel="noopener"><img src="assets/brands/herencia-6.webp" alt="Cóctel Tricolor de Herencia" width="360" height="640" loading="lazy" /></a>
+          <a class="ed-card" style="--n:2;--a:2" href="https://www.instagram.com/herenciarestaurantepasto/reel/DeuU_oAAQGo/" target="_blank" rel="noopener"><img src="assets/brands/herencia-9.webp" alt="Música en vivo en Herencia" width="360" height="640" loading="lazy" /></a>
+        </div>
+      </article>
+      <article class="ed-brand" id="empresa-strabe">
+        <div class="ed-brand-info" data-reveal>
+          <img class="ed-brand-logo" src="assets/brands/strabe-logo.webp" alt="Logo de Strabe" width="150" height="150" loading="lazy" />
+          <p class="ed-brand-tag">Accesorios para hombre</p>
+          <h3 class="ed-brand-name">Strabe</h3>
+          <p class="ed-brand-line">“Cambiando las reglas del juego”: joyería masculina con clientes en Colombia y Ecuador.</p>
+          <ul class="ed-brand-facts"><li>26,5 mil seguidores</li><li>Colombia y Ecuador</li></ul>
+          <a class="ed-brand-link" href="https://www.instagram.com/strabe.co/" target="_blank" rel="noopener">@strabe.co <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="ed-fan ed-brand-fan" data-fan>
+          <a class="ed-card" style="--n:-2;--a:2" href="https://www.instagram.com/strabe.co/reel/DcesgZERkbi/" target="_blank" rel="noopener"><img src="assets/brands/strabe-5.webp" alt="Cadena blanca de Strabe" width="360" height="640" loading="lazy" /></a>
+          <a class="ed-card" style="--n:-1;--a:1" href="https://www.instagram.com/strabe.co/p/DfDADnTkV_d/" target="_blank" rel="noopener"><img src="assets/brands/strabe-1.webp" alt="Pulsera y cadena dorada de Strabe" width="360" height="640" loading="lazy" /></a>
+          <a class="ed-card" style="--n:0;--a:0" href="https://www.instagram.com/strabe.co/p/DdHSg33Eery/" target="_blank" rel="noopener"><img src="assets/brands/strabe-4.webp" alt="Modelo de Strabe de camisa negra junto a una camioneta" width="360" height="640" loading="lazy" /></a>
+          <a class="ed-card" style="--n:1;--a:1" href="https://www.instagram.com/strabe.co/reel/Dd61jPhxc0y/" target="_blank" rel="noopener"><img src="assets/brands/strabe-3.webp" alt="Cadena dorada sobre la piel" width="360" height="640" loading="lazy" /></a>
+          <a class="ed-card" style="--n:2;--a:2" href="https://www.instagram.com/strabe.co/reel/DcY3TkwRG2Q/" target="_blank" rel="noopener"><img src="assets/brands/strabe-6.webp" alt="Colección de cadenas y pulseras doradas" width="360" height="640" loading="lazy" /></a>
+        </div>
+      </article>
     </section>
 
     <!-- 07 PROGRAMA -->
@@ -202,37 +394,74 @@
       <div class="wrap grid-3" data-testimonials></div>
     </section>
 
-    <!-- 08 CALCULADORA -->
-    <section class="ed-calc" id="calculadora" data-tone-section="light" aria-labelledby="calc-title">
+    <!-- I · INTERÉS y D · DESEO: oferta de valor, precio y asesoría en vivo -->
+    <section class="ed-offer" id="oferta" data-tone-section="light" aria-labelledby="offer-title">
+      <div class="contour" data-contour aria-hidden="true"></div>
+      <div class="wrap ed-offer-grid">
+        <div>
+          <p class="ed-kicker" data-reveal>La oferta</p>
+          <h2 class="ed-h2" id="offer-title" data-reveal><i>Todo lo que</i> RECIBES.</h2>
+          <ul class="ed-offer-list" data-reveal>
+            <li><b>Programa completo</b><span>8 módulos: captación con pauta, atención comercial, IA y medición.</span></li>
+            <li><b>Proyección de ventas</b><span>La misma calculadora que usamos con nuestros clientes para fijar metas y presupuesto.</span></li>
+            <li><b>Atención con inteligencia artificial</b><span>Cómo responder y hacer seguimiento por WhatsApp para vender 24/7.</span></li>
+            <li><b>Asesoría en vivo</b><span>Sesión de los viernes para resolver tu caso con Ricardo.</span></li>
+          </ul>
+        </div>
+        <aside class="ed-price" data-reveal data-offer>
+          <p class="ed-price-label">Valor de la oferta</p>
+          <p class="ed-price-value"><s data-offer-anchor hidden></s><strong data-offer-value>$1.000.000</strong></p>
+          <p class="ed-price-today" data-offer-price hidden></p>
+          <div class="ed-live">
+            <span class="ed-live-dot" aria-hidden="true"></span>
+            <div>
+              <b>Asesoría en vivo · <span data-live-when>Viernes · 7:00</span></b>
+              <span>Pocos cupos disponibles: la asesoría es para las primeras personas que se inscriban.</span>
+            </div>
+          </div>
+          <button class="btn btn-gold" data-cta="offer"><span data-show="b">Quiero mi cupo</span><span data-show="a">Quiero acceder</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        </aside>
+      </div>
+    </section>
+
+    <!-- O · OBJECIONES: para quién es el entrenamiento -->
+    <section class="ed-fit" id="para-quien" data-tone-section="dark" aria-labelledby="fit-title">
       <div class="contour" data-contour aria-hidden="true"></div>
       <div class="wrap">
         <div class="ed-section-head">
-          <p class="ed-kicker" data-reveal>Calculadora de rentabilidad</p>
-          <h2 class="ed-h2" id="calc-title" data-reveal><i>Ponle números</i> A TU CAMPAÑA.</h2>
+          <p class="ed-kicker" data-reveal>¿Para quién es el entrenamiento?</p>
+          <h2 class="ed-h2" id="fit-title" data-reveal><i>Para empresarios</i> QUE QUIEREN VENDER EN SERIO.</h2>
         </div>
-        <div class="calc ed-calc-panel" data-reveal data-calc>
-          <form class="calc-inputs" aria-label="Datos de tu negocio" onsubmit="return false">
-            <label class="field-range"><span>Inversión mensual en publicidad</span><output data-out="spend"></output>
-              <input type="range" name="spend" min="500000" max="50000000" step="500000" value="3000000" /></label>
-            <label class="field-range"><span>Costo por cliente potencial</span><output data-out="cpl"></output>
-              <input type="range" name="cpl" min="2000" max="100000" step="1000" value="15000" /></label>
-            <label class="field-range"><span>Porcentaje de conversión</span><output data-out="conv"></output>
-              <input type="range" name="conv" min="1" max="50" step="0.5" value="10" /></label>
-            <label class="field-range"><span>Ticket promedio</span><output data-out="ticket"></output>
-              <input type="range" name="ticket" min="50000" max="10000000" step="50000" value="450000" /></label>
-            <label class="field-range"><span>Margen de utilidad</span><output data-out="margin"></output>
-              <input type="range" name="margin" min="5" max="90" step="1" value="45" /></label>
-          </form>
-          <div class="calc-results" aria-live="polite">
-            <div class="kpi kpi-main"><span>Facturación proyectada</span><strong data-r="revenue">—</strong></div>
-            <div class="kpi"><span>Clientes potenciales</span><strong data-r="leads">—</strong></div>
-            <div class="kpi"><span>Ventas proyectadas</span><strong data-r="sales">—</strong></div>
-            <div class="kpi"><span>Costo de adquisición</span><strong data-r="cac">—</strong></div>
-            <div class="kpi"><span>Utilidad estimada</span><strong data-r="profit">—</strong></div>
-            <div class="kpi"><span>ROAS estimado</span><strong data-r="roas">—</strong></div>
-            <p class="note">Simulación con fines ilustrativos. No representa resultados garantizados; los resultados reales dependen de cada negocio y su ejecución.</p>
+        <div class="ed-fit-grid">
+          <div class="ed-fit-col yes" data-reveal>
+            <p class="ed-fit-tag">Es para ti si</p>
+            <ul>
+              <li>Tienes un negocio en marcha y quieres que las redes sociales te traigan clientes.</li>
+              <li>Vendes por conversación: WhatsApp, llamada o asesoría.</li>
+              <li>Quieres saber cuánto te cuesta cada cliente y cada venta.</li>
+              <li>Estás dispuesto a invertir en pauta y a implementar con tu equipo.</li>
+            </ul>
+          </div>
+          <div class="ed-fit-col no" data-reveal style="--d:.12s">
+            <p class="ed-fit-tag">No es para ti si</p>
+            <ul>
+              <li>Buscas resultados sin invertir en publicidad ni implementar.</li>
+              <li>Esperas que los anuncios vendan solos, sin atención comercial.</li>
+              <li>Aún no tienes un producto o servicio definido para vender.</li>
+            </ul>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- 10 FAQ -->
+    <section class="ed-faq" id="faq" data-tone-section="dark" aria-labelledby="faq-title">
+      <div class="wrap ed-faq-grid">
+        <div class="ed-section-head">
+          <p class="ed-kicker" data-reveal>Preguntas frecuentes</p>
+          <h2 class="ed-h2" id="faq-title" data-reveal><i>Lo que</i> SUELEN PREGUNTAR.</h2>
+        </div>
+        <div class="faq" data-faq></div>
       </div>
     </section>
 
@@ -257,39 +486,8 @@
           <li data-reveal style="--d:.24s"><span>04</span>Implementa el sistema en tu negocio</li>
         </ol>
         <div class="ed-access-cta" data-reveal>
-          <button class="btn btn-gold" data-cta="admission"><span data-show="b">Quiero aplicar al programa</span><span data-show="a">Acceder a Vendo Desaparece</span></button>
+          <button class="btn btn-gold" data-cta="admission"><span data-show="b">Quiero aplicar al programa</span><span data-show="a">Acceder a Vende o Desaparece</span></button>
         </div>
-      </div>
-    </section>
-
-    <!-- 10 FAQ -->
-    <section class="ed-faq" id="faq" data-tone-section="dark" aria-labelledby="faq-title">
-      <div class="wrap ed-faq-grid">
-        <div class="ed-section-head">
-          <p class="ed-kicker" data-reveal>Preguntas frecuentes</p>
-          <h2 class="ed-h2" id="faq-title" data-reveal><i>Lo que</i> SUELEN PREGUNTAR.</h2>
-        </div>
-        <div class="faq" data-faq></div>
-      </div>
-    </section>
-
-    <!-- REDES: abanico de publicaciones -->
-    <section class="ed-social" id="redes" data-tone-section="light" aria-labelledby="social-title">
-      <div class="contour" data-contour aria-hidden="true"></div>
-      <div class="ed-social-head">
-        <p class="ed-kicker" data-reveal>@el_ridam</p>
-        <h2 class="ed-h2" id="social-title" data-reveal><i>Qué pasa</i> EN REDES.</h2>
-      </div>
-      <div class="ed-fan" data-fan>
-        <a class="ed-card" style="--n:-2;--a:2" href="https://www.instagram.com/el_ridam/p/DfaWwE3FuSZ/" target="_blank" rel="noopener"><img src="assets/social/obra.webp" alt="Ricardo con casco en la obra de su nuevo punto" width="480" height="640" loading="lazy" /></a>
-        <a class="ed-card" style="--n:-1;--a:1" href="https://www.instagram.com/el_ridam/p/DV_5YFYj94l/" target="_blank" rel="noopener"><img src="assets/social/palacio.webp" alt="Ricardo de camisa negra frente a un edificio histórico" width="480" height="640" loading="lazy" /></a>
-        <a class="ed-card" style="--n:0;--a:0" href="https://www.instagram.com/el_ridam/p/DaJqX1vERjK/" target="_blank" rel="noopener"><img src="assets/social/carro.webp" alt="Retrato de Ricardo mirando a cámara" width="480" height="640" loading="lazy" /></a>
-        <a class="ed-card" style="--n:1;--a:1" href="https://www.instagram.com/el_ridam/p/DdyteTjEfaR/" target="_blank" rel="noopener"><img src="assets/social/plaza.webp" alt="Ricardo de camisa blanca en una plaza" width="480" height="640" loading="lazy" /></a>
-        <a class="ed-card" style="--n:2;--a:2" href="https://www.instagram.com/el_ridam/p/DexKgw3D3ZG/" target="_blank" rel="noopener"><img src="assets/social/lancha.webp" alt="Ricardo en una lancha" width="480" height="640" loading="lazy" /></a>
-      </div>
-      <div class="ed-social-foot" data-reveal>
-        <p>Sigue a Ricardo en redes</p>
-        <a class="btn btn-gold" href="https://www.instagram.com/el_ridam/" target="_blank" rel="noopener">@el_ridam en Instagram<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
     </section>
 
@@ -298,16 +496,16 @@
       <img class="ed-final-bg" src="assets/gallery/final.webp" alt="" loading="lazy" />
       <div class="ed-final-inner">
         <h2 class="ed-final-title" id="final-title"><i>Haz que tu próxima campaña</i> TENGA UN SISTEMA DETRÁS.</h2>
-        <button class="btn btn-gold" data-cta="final"><span data-show="b">Solicitar acceso privado</span><span data-show="a">Acceder a Vendo Desaparece</span></button>
+        <button class="btn btn-gold" data-cta="final"><span data-show="b">Solicitar acceso privado</span><span data-show="a">Acceder a Vende o Desaparece</span></button>
       </div>
-      <p class="ed-final-mark" aria-hidden="true"><i>Vendo</i> DESAPARECE</p>
+      <p class="ed-final-mark" aria-hidden="true"><i>Vende o</i> DESAPARECE</p>
     </section>
   </main>
 
   <footer class="footer ed-footer">
     <div class="wrap footer-inner">
-      <span class="ed-logo"><span class="mono">VD</span><span class="ed-logo-word"><i>Vendo</i> DESAPARECE</span></span>
-      <span class="small">© <span data-year></span> Vendo Desaparece. Todos los derechos reservados.</span>
+      <span class="ed-logo"><span class="mono">VD</span><span class="ed-logo-word"><i>Vende o</i> DESAPARECE</span></span>
+      <span class="small">© <span data-year></span> Vende o Desaparece. Todos los derechos reservados.</span>
       <span class="footer-links">
         <a class="small" href="https://www.instagram.com/el_ridam/" target="_blank" rel="noopener">Instagram</a>
         <a class="small" data-privacy href="#privacidad">Política de privacidad</a>
@@ -317,7 +515,7 @@
 
   <!-- BARRA FLOTANTE -->
   <aside class="floatbar" data-floatbar aria-label="Acceso rápido">
-    <span class="floatbar-text">Vendo Desaparece · <b>Tu siguiente nivel comercial</b></span>
+    <span class="floatbar-text">Vende o Desaparece · <b>Tu siguiente nivel comercial</b></span>
     <button class="btn btn-gold btn-sm" data-cta="floatbar">
       <span data-show="b">Solicitar acceso</span><span data-show="a">Acceder ahora</span>
     </button>
@@ -374,6 +572,7 @@
   <script src="js/render.js"></script>
   <script src="js/calculator.js"></script>
   <script src="js/vsl.js"></script>
+  <script src="js/offer.js"></script>
   <script src="js/editorial.js"></script>
   <script src="js/animations.js"></script>
   <script src="js/funnel.js"></script>

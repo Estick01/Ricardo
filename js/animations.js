@@ -127,7 +127,7 @@
     sign.setAttribute("data-sig-flourish", "");
     const tag = document.createElement("p");
     tag.className = "intro-tag";
-    tag.textContent = "Vendo Desaparece";
+    tag.textContent = "Vende o Desaparece";
     overlay.append(sign, tag);
     document.body.appendChild(overlay);
     try {
@@ -163,7 +163,7 @@
       img.replaceWith(frame);
       frame.appendChild(img);
     });
-    const targets = document.querySelectorAll(".ed-shot, .ed-mentor-cut, .ed-split-figures, .ed-stats, .ed-flow");
+    const targets = document.querySelectorAll(".ed-shot, .ed-mentor-cut, .ed-split-figures, .ed-stats, .ed-flow, .ed-case-ba");
     targets.forEach((el) => el.setAttribute("data-anim", ""));
     if (reduce || !("IntersectionObserver" in window)) { targets.forEach((el) => el.classList.add("in")); return; }
     const io = new IntersectionObserver((entries) => {
@@ -171,7 +171,7 @@
         if (!e.isIntersecting) return;
         io.unobserve(e.target);
         e.target.classList.add("in");
-        if (e.target.classList.contains("ed-stats")) countUp(e.target);
+        if (e.target.classList.contains("ed-stats") || e.target.classList.contains("ed-case-ba")) countUp(e.target);
       });
     }, { rootMargin: "0px 0px -10% 0px", threshold: 0.15 });
     targets.forEach((el) => io.observe(el));
