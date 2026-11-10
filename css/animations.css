@@ -1,0 +1,125 @@
+/* ==========================================================================
+   ANIMACIONES · firma manuscrita, intro y entradas con máscara (js/animations.js)
+   ========================================================================== */
+
+/* ---------- Firma ---------- */
+.sig { display: block; width: 100%; height: auto; overflow: visible; color: var(--gold-hi); --sig-dur: 2.2s; }
+.sig-text {
+  font-family: var(--script); font-size: 190px;
+  fill: currentColor; fill-opacity: 0; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round;
+  stroke-dasharray: 1700; stroke-dashoffset: 1700;
+}
+.sig-sweep { transform-box: fill-box; transform-origin: 0 50%; transform: scaleX(0); }
+.sig-flourish {
+  fill: none; stroke: currentColor; stroke-width: 3.2; stroke-linecap: round;
+  stroke-dasharray: 1; stroke-dashoffset: 1;
+}
+.is-drawn .sig-sweep { animation: sigSweep var(--sig-dur) cubic-bezier(.55, .08, .3, 1) forwards; }
+.is-drawn .sig-text {
+  animation: sigStroke calc(var(--sig-dur) * 1.15) cubic-bezier(.4, 0, .2, 1) forwards,
+             sigFill .8s ease calc(var(--sig-dur) * .62) forwards;
+}
+.is-drawn .sig-flourish { animation: sigStroke .9s cubic-bezier(.65, 0, .2, 1) calc(var(--sig-dur) * .82) forwards; }
+@keyframes sigSweep { to { transform: scaleX(1); } }
+@keyframes sigStroke { to { stroke-dashoffset: 0; } }
+@keyframes sigFill { to { fill-opacity: 1; } }
+
+/* Firma gobernada por el scroll (escena del video): el barrido sigue --k-sign */
+.sig-scrub .sig-text { fill-opacity: 1; stroke-dashoffset: 0; }
+.sig-scrub .sig-sweep { transform: scaleX(var(--k-sign, 0)); }
+.sig-scrub .sig-flourish { stroke-dashoffset: calc(1 - var(--k-rubric, 0)); }
+
+/* Firma sobre el retrato de Ricardo */
+.ed-mentor-sign {
+  position: absolute !important; z-index: 2 !important; pointer-events: none;
+  width: min(46vw, 620px); left: 50%; bottom: 9%; transform: translateX(-4%) rotate(-7deg);
+  filter: drop-shadow(0 6px 24px rgba(11, 11, 13, .7));
+}
+
+/* ---------- Intro ---------- */
+html.intro-playing body::before {
+  content: ""; position: fixed; inset: 0; z-index: 200; background: var(--obsidian);
+  animation: introFailsafe .6s linear 6s forwards;
+}
+@keyframes introFailsafe { to { opacity: 0; visibility: hidden; } }
+.intro {
+  position: fixed; inset: 0; z-index: 201; display: grid; place-content: center; justify-items: center; gap: 18px;
+  background: var(--obsidian); clip-path: inset(0); transition: clip-path .9s cubic-bezier(.76, 0, .24, 1);
+}
+.intro.is-out { clip-path: inset(0 0 100% 0); }
+.intro-sign { width: min(72vw, 720px); transform: rotate(-5deg); transition: transform .9s cubic-bezier(.76, 0, .24, 1), opacity .5s; }
+.intro.is-out .intro-sign { transform: rotate(-5deg) translateY(-60px); opacity: 0; }
+.intro-tag {
+  margin: 0; font: 600 10px/1 var(--sans); letter-spacing: .34em; text-transform: uppercase; color: var(--muted);
+  opacity: 0; transition: opacity 1s ease .9s;
+}
+.intro.is-on .intro-tag { opacity: 1; }
+.intro.is-out .intro-tag { opacity: 0; transition-delay: 0s; transition-duration: .3s; }
+
+/* El hero espera a que termine la intro */
+html.intro-playing .ed-hero-name .row,
+html.intro-playing .ed-hero-portrait img,
+html.intro-playing .ed-hero-foot { animation-play-state: paused !important; }
+
+/* ---------- Títulos: suben palabra por palabra ---------- */
+.anim-ready .ed-h2 .split-word,
+.anim-ready .ed-gallery-title .split-word,
+.anim-ready .ed-final-title .split-word { overflow-clip-margin: 0px; padding: .2em .04em .06em; margin: -.2em -.04em -.02em; } /* aire para tildes (É, Ó) */
+.anim-ready [data-split] .split-word > span { transform: translateY(110%) rotate(4deg); transform-origin: 0 100%; transition-duration: 1.3s; transition-delay: calc(var(--i) * 70ms + var(--d, 0s)); }
+.anim-ready [data-split].in .split-word > span { transform: none; }
+
+/* Manifiesto: las palabras suben apagadas y se encienden en cadena */
+.anim-ready .ed-statement .split-word { overflow-clip-margin: 0px; padding: .2em .04em .08em; margin: -.2em -.04em -.04em; }
+.anim-ready .ed-statement .split-word > span {
+  color: rgba(248, 247, 244, .16);
+  transition: transform 1.1s var(--ease) calc(var(--i) * 40ms), opacity 1.1s var(--ease) calc(var(--i) * 40ms),
+              color .9s ease calc(var(--i) * 95ms + .55s);
+}
+.anim-ready .ed-statement.in .split-word > span { color: var(--white); }
+.anim-ready .ed-statement.in .split-word > .em-word { color: var(--gold-hi); }
+
+/* ---------- Fotos: se descubren con recorte ---------- */
+.ed-shot-frame { display: block; overflow: hidden; border-radius: 6px; }
+.anim-ready .ed-shot-frame { clip-path: inset(100% 0 0 0); transition: clip-path 1.5s cubic-bezier(.76, 0, .24, 1); }
+.anim-ready .ed-shot-frame :is(img, video) { transform: scale(1.28); transition: transform 2s var(--ease), filter .8s; }
+.anim-ready .ed-shot.in .ed-shot-frame { clip-path: inset(0); }
+.anim-ready .ed-shot.in .ed-shot-frame :is(img, video) { transform: scale(1.02); }
+.anim-ready .ed-shot.in:hover .ed-shot-frame :is(img, video) { transform: scale(1.08); filter: saturate(1.05) contrast(1.03); }
+.anim-ready .ed-shot figcaption { opacity: 0; transform: translateY(8px); transition: opacity .9s ease .5s, transform .9s var(--ease) .5s; }
+.anim-ready .ed-shot.in figcaption { opacity: 1; transform: none; }
+
+/* Retratos recortados: emergen desde abajo */
+.anim-ready .ed-mentor-cut { opacity: 0; translate: 0 7%; scale: 1.04; transition: opacity 1.2s ease, translate 1.8s var(--ease), scale 1.8s var(--ease); }
+.anim-ready .ed-mentor-cut.in { opacity: 1; translate: 0 0; scale: 1; }
+.anim-ready .ed-split-figures img { opacity: 0; translate: 0 12%; transition: opacity 1s ease, translate 1.6s var(--ease); }
+.anim-ready .ed-split-figures .fig-right { transition-delay: .15s; }
+.anim-ready .ed-split-figures.in img { opacity: 1; translate: 0 0; }
+
+/* Flujo y cifras: aparecen en cadena */
+.anim-ready .ed-flow li { opacity: 0; translate: 0 16px; transition: opacity .8s ease, translate .9s var(--ease); }
+.anim-ready .ed-flow.in li { opacity: 1; translate: 0 0; }
+.anim-ready .ed-flow li:nth-child(2) { transition-delay: .12s; }
+.anim-ready .ed-flow li:nth-child(3) { transition-delay: .24s; }
+.anim-ready .ed-flow li:nth-child(4) { transition-delay: .36s; }
+.ed-stats strong { font-variant-numeric: tabular-nums; }
+
+/* Líneas divisorias que se trazan */
+.anim-ready .ed-modules .module { position: relative; }
+.anim-ready .ed-modules .module::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 1px; background: var(--accent);
+  transform: scaleX(0); transform-origin: 0 50%; transition: transform .8s var(--ease);
+}
+.anim-ready .ed-modules .module:hover::after { transform: scaleX(1); }
+
+@media (max-width: 760px) {
+  .ed-mentor-sign { width: 74vw; bottom: 6%; transform: translateX(-30%) rotate(-7deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sig-text { fill-opacity: 1; stroke-dashoffset: 0; }
+  .sig-sweep { transform: none; }
+  .sig-flourish { stroke-dashoffset: 0; }
+  .anim-ready .ed-shot-frame, .anim-ready .ed-shot-frame :is(img, video), .anim-ready .ed-shot figcaption,
+  .anim-ready .ed-mentor-cut, .anim-ready .ed-split-figures img, .anim-ready .ed-flow li {
+    clip-path: none; transform: none; translate: none; scale: none; opacity: 1;
+  }
+}

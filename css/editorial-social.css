@@ -1,0 +1,41 @@
+/* ==========================================================================
+   EDITORIAL · REDES — abanico de publicaciones de @el_ridam
+   js/editorial.js expone --open (0→1) en [data-fan] según el scroll.
+   Cada tarjeta lleva --n (posición: -2…2) y --a (|n|).
+   ========================================================================== */
+.ed-social { padding: var(--section) var(--gutter); overflow: clip; display: grid; justify-items: center; gap: clamp(40px, 6vw, 88px); text-align: center; }
+.ed-social-head { display: grid; justify-items: center; }
+.ed-social-head .ed-kicker { margin-bottom: 18px; }
+.ed-fan {
+  --open: 0; --card-w: clamp(150px, 19vw, 290px); --spread: clamp(74px, 11.5vw, 190px);
+  position: relative; width: 100%; height: calc(var(--card-w) * 4 / 3 + 90px); display: grid; place-items: center;
+}
+.ed-card {
+  --lift: 0px; --grow: 1;
+  position: relative; grid-area: 1 / 1; width: var(--card-w); aspect-ratio: 3 / 4; border-radius: clamp(18px, 2.2vw, 34px); overflow: hidden;
+  z-index: calc(5 - var(--a)); background: var(--ink);
+  box-shadow: 0 30px 60px -28px rgba(20, 20, 22, .55), 0 0 0 1px rgba(20, 20, 22, .06);
+  transform:
+    translate(calc(var(--n) * var(--spread) * var(--open)), calc(var(--a) * var(--a) * 9px * var(--open) - var(--lift)))
+    rotate(calc(var(--n) * 7deg * var(--open)))
+    scale(calc((1 - var(--a) * .05) * var(--grow)));
+  transition: transform .7s var(--ease), box-shadow .5s;
+  will-change: transform;
+}
+.ed-card img { width: 100%; height: 100%; object-fit: cover; filter: saturate(.92) contrast(1.03); transition: transform 1.2s var(--ease), filter .5s; }
+.ed-card::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 55%, rgba(11, 11, 13, .45)); opacity: calc(var(--a) * .3); transition: opacity .4s; pointer-events: none; }
+@media (hover: hover) {
+  .ed-card:hover, .ed-card:focus-visible { --lift: 34px; --grow: 1.07; z-index: 9; box-shadow: 0 50px 80px -30px rgba(20, 20, 22, .7), 0 0 0 1px var(--gold); }
+  .ed-card:hover img { transform: scale(1.06); filter: saturate(1.05) contrast(1.04); }
+  .ed-card:hover::after { opacity: 0; }
+}
+.ed-social-foot { display: grid; justify-items: center; gap: 22px; }
+.ed-social-foot p { margin: 0; font: 400 clamp(22px, 2.4vw, 34px)/1.1 var(--serif); color: var(--fg); }
+
+@media (max-width: 760px) {
+  .ed-fan { --card-w: 46vw; --spread: 17vw; height: calc(var(--card-w) * 4 / 3 + 70px); }
+  .ed-social-foot .btn { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ed-card, .ed-card img { transition: none; }
+}

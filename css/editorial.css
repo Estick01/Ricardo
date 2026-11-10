@@ -1,0 +1,219 @@
+/* ==========================================================================
+   EDITORIAL · lenguaje visual de marca personal (referencia: landonorris.com)
+   Retrato recortado protagonista, tipografía gigante serif + grotesca
+   condensada, líneas topográficas y tono de fondo que cambia con el scroll.
+   Paleta Obsidiana & Champagne. Este archivo: base, nav, hero, manifiesto, VSL.
+   ========================================================================== */
+:root {
+  --ink: #141416;
+  --paper: #ECE7DE;
+  --gold-deep: #7E6438;
+  --display: "Archivo", "Inter", system-ui, sans-serif;
+  --script: "Mrs Saint Delafield", cursive;
+  --bg: var(--obsidian);
+  --fg: var(--white);
+  --fg-soft: rgba(248, 247, 244, .62);
+  --rule: rgba(233, 226, 215, .12);
+  --accent: var(--gold);
+  --section: clamp(88px, 12vw, 180px);
+}
+html[data-tone="light"] {
+  --bg: var(--paper);
+  --fg: var(--ink);
+  --fg-soft: rgba(20, 20, 22, .64);
+  --rule: rgba(20, 20, 22, .14);
+  --accent: var(--gold-deep);
+}
+html { scroll-behavior: auto; scroll-padding-top: 80px; }
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-stopped { overflow: clip; }
+body { background: var(--bg); color: var(--fg); transition: background-color .9s var(--ease), color .9s var(--ease); }
+[hidden] { display: none !important; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* Tipografía de marca: serif fina + grotesca condensada en mayúsculas */
+.ed-h2, .row, .ed-split-title, .ed-gallery-title, .ed-final-title, .ed-final-mark, .ed-statement, .ed-marquee-row {
+  font-family: var(--display); font-stretch: 72%; font-weight: 800; text-transform: uppercase; letter-spacing: -.01em;
+}
+.ed-h2 i, .row-serif, .ed-split-title i, .ed-gallery-title i, .ed-final-title i, .ed-final-mark i, .ed-marquee-row i, .ed-logo-word i {
+  font-family: var(--serif); font-style: normal; font-weight: 400; text-transform: none; letter-spacing: -.03em; color: var(--accent);
+}
+.ed-h2 { margin: 0; font-size: clamp(44px, 7.4vw, 124px); line-height: .9; text-wrap: balance; }
+.ed-kicker { margin: 0 0 22px; font: 600 11px/1.3 var(--sans); letter-spacing: .24em; text-transform: uppercase; color: var(--accent); }
+.ed-lead { font-size: clamp(16px, 1.35vw, 19px); line-height: 1.6; color: var(--fg-soft); margin: 0; max-width: 46ch; }
+.ed-section-head { margin-bottom: clamp(48px, 6vw, 88px); }
+
+/* Líneas topográficas (las dibuja js/editorial.js) */
+.contour { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; color: var(--accent); opacity: .2; }
+.contour svg { position: absolute; inset: -5%; width: 110%; height: 110%; animation: contourDrift 60s ease-in-out infinite alternate; }
+.contour path { fill: none; stroke: currentColor; stroke-width: 1; vector-effect: non-scaling-stroke; }
+@keyframes contourDrift { to { transform: translate3d(-2%, 1.5%, 0) rotate(.6deg); } }
+main > section { position: relative; }
+/* :where() deja la especificidad en cero: cualquier clase puede fijar su propio position / z-index */
+main > section > :where(:not(.contour)) { position: relative; z-index: 1; }
+
+/* ---------- NAV ---------- */
+.ed-nav { height: 76px; background: transparent !important; border: 0 !important; backdrop-filter: none !important; mix-blend-mode: normal; }
+.ed-nav.scrolled { background: color-mix(in srgb, var(--bg) 78%, transparent) !important; backdrop-filter: blur(16px) saturate(140%) !important; }
+.ed-logo { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; color: var(--fg); }
+.ed-logo-word { font: 800 15px/1 var(--display); font-stretch: 75%; letter-spacing: .02em; }
+.ed-logo-word i { font-size: 17px; margin-right: 2px; }
+.ed-nav .nav-links a { color: var(--fg-soft); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; }
+.ed-nav .nav-links a:hover { color: var(--fg); }
+.ed-chip {
+  height: 38px; padding: 0 18px; border: 0; border-radius: 8px; cursor: pointer;
+  background: var(--gold-hi); color: var(--obsidian); font: 700 11px/1 var(--sans); letter-spacing: .14em; text-transform: uppercase;
+  transition: transform .4s var(--ease), background .3s;
+}
+.ed-chip:hover { transform: translateY(-2px); background: #f4e6ca; }
+
+/* ---------- 01 HERO ---------- */
+.ed-hero { height: 100svh; min-height: 640px; max-height: 1100px; overflow: clip; isolation: isolate; }
+.ed-hero-name {
+  position: absolute; inset: 10svh 0 auto; z-index: 1; display: grid; justify-items: center; pointer-events: none;
+}
+.ed-hero-name .row { display: block; white-space: nowrap; line-height: .8; will-change: transform; }
+.ed-hero-name .row-serif { font-size: clamp(70px, 13vw, 230px); margin-bottom: -.02em; color: var(--gold-hi); }
+.ed-hero-name .row-bold { font-size: clamp(84px, 19.5vw, 340px); color: var(--white); }
+.ed-hero-portrait {
+  position: absolute; z-index: 2; left: 50%; bottom: 0; margin: 0; height: min(70svh, 820px);
+  transform: translateX(-50%) translateY(calc(var(--hp, 0) * 6%)) scale(calc(1 + var(--hp, 0) * .05)); transform-origin: 50% 100%;
+}
+.ed-hero-portrait img {
+  height: 100%; width: auto; max-width: none;
+  filter: saturate(.9) contrast(1.06) brightness(1.05) drop-shadow(0 0 70px rgba(198, 167, 119, .16));
+  /* se funde hacia abajo y en los bordes laterales, donde el encuadre original corta los brazos */
+  -webkit-mask-image: linear-gradient(180deg, #000 70%, transparent 98%), linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
+  mask-image: linear-gradient(180deg, #000 70%, transparent 98%), linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
+  -webkit-mask-composite: source-in; mask-composite: intersect;
+}
+/* Halo champagne detrás del retrato */
+.ed-hero::before {
+  content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background: radial-gradient(46% 52% at 50% 60%, rgba(198, 167, 119, .2), rgba(198, 167, 119, .05) 55%, transparent 75%);
+}
+.ed-hero::after { content: ""; position: absolute; inset: auto 0 0; height: 34%; z-index: 2; pointer-events: none; background: linear-gradient(180deg, transparent, rgba(11, 11, 13, .88)); }
+.scribble { position: absolute; z-index: 3; width: 46%; left: 54%; top: 46%; overflow: visible; pointer-events: none; transform: rotate(-8deg); }
+/* La palabra manuscrita se dibuja con el sistema de firma (css/animations.css) */
+.scribble .sig { --sig-dur: 1.8s; }
+.scribble .sig-text { stroke-width: 2.2; animation-delay: .9s, 2s; }
+.scribble .sig-sweep { animation-delay: .9s; }
+.ed-hero-foot {
+  position: absolute; z-index: 3; left: 0; right: 0; bottom: 0; padding: 0 clamp(20px, 4vw, 56px) clamp(24px, 4svh, 44px);
+  display: flex; justify-content: space-between; align-items: flex-end; gap: 32px;
+}
+.ed-hero-copy { max-width: 440px; }
+.ed-hero-copy h1 { margin: 0; font: 500 clamp(19px, 1.7vw, 26px)/1.25 var(--sans); letter-spacing: -.02em; color: var(--white); }
+.ed-hero-copy h1 em { font: inherit; color: var(--gold-hi); background: none; animation: none; padding: 0; -webkit-text-fill-color: currentColor; }
+.ed-hero-cta { display: grid; justify-items: end; gap: 16px; margin: 0; }
+.ed-scroll { font: 600 10px/1 var(--sans); letter-spacing: .24em; text-transform: uppercase; color: var(--fg-soft); text-decoration: none; }
+.ed-scroll span { color: var(--gold); margin-left: 8px; display: inline-block; animation: nudge 2s var(--ease-io) infinite; }
+@keyframes nudge { 50% { transform: translateY(4px); } }
+
+/* Entrada del hero */
+.motion-ready .ed-hero-name .row { animation: heroRise 1.4s var(--ease) both; }
+.motion-ready .ed-hero-name .row-bold { animation-delay: .12s; }
+.motion-ready .ed-hero-portrait img { animation: heroFade 1.6s var(--ease) .25s both; }
+.motion-ready .ed-hero-foot { animation: heroFade 1.2s var(--ease) .7s both; }
+@keyframes heroRise { from { opacity: 0; transform: translateY(40%); } }
+@keyframes heroFade { from { opacity: 0; transform: translateY(24px); } }
+
+/* ---------- 02 ESCENA · el video crece con el scroll y la firma se escribe encima ----------
+   js/editorial.js expone --sp (0→1) con el avance dentro de la sección. */
+.ed-scene {
+  --hs: 0; --sp: 0; height: 400vh;  /* --hs: el hero se encoge (primer tramo) · --sp: el video crece (resto) */
+  --k-frame: clamp(0, calc(var(--sp) / .6), 1);          /* crecimiento del marco */
+  --k-sign: clamp(0, calc((var(--sp) - .1) / .48), 1);   /* escritura de la firma */
+  --k-rubric: clamp(0, calc((var(--sp) - .56) / .12), 1);/* rúbrica */
+  --k-ui: clamp(0, calc((var(--sp) - .5) / .14), 1);     /* controles del video */
+  --k-out: clamp(0, calc((var(--sp) - .74) / .14), 1);   /* la firma se retira */
+}
+main > .ed-scene > .ed-scene-pin { position: sticky; top: 0; height: 100svh; overflow: clip; display: grid; grid-template-columns: minmax(0, 1fr); place-items: center; }
+.ed-scene-pin > :not(.contour) { grid-area: 1 / 1; }
+.ed-scene-anchor { position: absolute; top: calc(100% - 100vh - 2px); height: 1px; width: 1px; pointer-events: none; }
+/* El hero es la capa superior: se encoge hasta el tamaño del marco del video y se desvanece.
+   js/editorial.js calcula --hero-end (escala final), --hero-clip y --hero-radius para que calce con el marco. */
+.ed-scene-pin > .ed-hero {
+  position: relative; z-index: 4; width: 100%; height: 100%; min-height: 0; max-height: none;
+  background: radial-gradient(60% 70% at 50% 62%, #1d1a15, #0e0e11 70%);
+  transform: scale(calc(1 - (1 - var(--hero-end, .3)) * var(--hs)));
+  clip-path: inset(calc(var(--hero-clip, 0px) * var(--hs)) 0 round calc(var(--hero-radius, 30px) * var(--hs)));
+  opacity: clamp(0, calc((1 - var(--hs)) / .1), 1); will-change: transform, clip-path;
+}
+.ed-scene.hero-gone .ed-hero { visibility: hidden; }
+.ed-scene .ed-hero-foot { opacity: clamp(0, calc(1 - var(--hs) * 5), 1); }
+.ed-marquee { position: relative; z-index: 0; width: 100%; min-width: 0; pointer-events: none; opacity: calc(1 - .5 * var(--k-frame)); }
+.ed-marquee-row { display: flex; justify-content: center; white-space: nowrap; line-height: .86; font-size: clamp(80px, 15vw, 260px); will-change: transform; }
+.ed-marquee-row span { flex: none; }
+.ed-marquee-row:not(.bold) { color: var(--gold-hi); }
+.ed-marquee-row:not(.bold) i { color: var(--gold); }
+.ed-marquee-row.bold { color: var(--white); }
+.ed-scene-frame {
+  position: relative; z-index: 1; width: min(1040px, calc(100% - 2 * var(--gutter)), calc((100svh - 150px) * 16 / 9));
+  transform: scale(calc(.36 + .64 * var(--k-frame))); will-change: transform;
+}
+.ed-scene-frame .ed-video { width: 100%; }
+.ed-scene .poster-control, .ed-scene .ed-video-tag { opacity: var(--k-ui); }
+.ed-scene-sign {
+  position: relative; z-index: 2; width: min(96vw, 1280px); pointer-events: none;
+  transform: rotate(-9deg); opacity: calc(1 - var(--k-out)); filter: drop-shadow(0 10px 30px rgba(11, 11, 13, .55));
+}
+.ed-scene-sign .sig-text { stroke-width: 5; stroke-linejoin: round; }
+.ed-scene-sign .sig-flourish { stroke-width: 7; }
+
+/* ---------- 03 MANIFIESTO ---------- */
+.ed-manifesto { padding: var(--section) var(--gutter); display: grid; justify-items: center; gap: clamp(32px, 4vw, 56px); overflow: clip; }
+.ed-badge { margin: 0; display: inline-flex; align-items: center; gap: 12px; font: 600 10px/1 var(--sans); letter-spacing: .22em; text-transform: uppercase; color: var(--fg-soft); }
+.ed-badge span { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; border: 1px solid var(--gold); color: var(--gold); font: 400 15px/1 var(--serif); letter-spacing: 0; }
+.ed-statement { max-width: 21ch; margin: 0; text-align: center; font-size: clamp(36px, 5.4vw, 96px); line-height: .98; color: var(--white); }
+.ed-statement .em-word {
+  font-family: var(--serif); font-weight: 400; text-transform: none; letter-spacing: -.03em; color: var(--gold-hi);
+  background: none; animation: none; padding: 0; -webkit-text-fill-color: currentColor;
+}
+
+.ed-video {
+  width: min(1040px, calc(100% - 2 * var(--gutter))); margin: 0 auto; aspect-ratio: 16 / 9; position: relative; z-index: 2 !important;
+  border-radius: 10px; overflow: hidden; background: #121214; box-shadow: 0 60px 140px -40px #000;
+}
+.ed-video .vsl-poster { position: absolute; inset: 0; display: block; background: none; padding: 0; }
+.ed-video .vsl-poster::before { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(90deg, rgba(11, 11, 13, .9) 0%, rgba(11, 11, 13, .35) 45%, transparent 70%), linear-gradient(0deg, rgba(11, 11, 13, .7), transparent 50%) !important; }
+.ed-video-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; filter: saturate(.7); }
+.ed-video .poster-control { position: absolute; z-index: 2; left: 6%; bottom: 10%; display: flex; align-items: center; gap: 18px; }
+.ed-video .vsl-play { width: 76px; height: 76px; }
+.ed-video .vsl-play:disabled { cursor: default; opacity: .85; }
+.ed-video .vsl-play:disabled::before { animation: none; opacity: .3; }
+.ed-video .vsl-meta { position: static; text-align: left; font-size: 11px; letter-spacing: .18em; color: var(--gold-hi); }
+.ed-video-tag { position: absolute; z-index: 2; top: 7%; left: 6%; font: 400 clamp(26px, 3.4vw, 48px)/1 var(--serif); color: var(--white); }
+.ed-video video, .ed-video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; background: #000; }
+.video-error { position: absolute; z-index: 4; bottom: 0; left: 0; right: 0; margin: 0; padding: 14px; background: #171613f5; color: var(--gold-hi); font-size: 13px; }
+
+@media (max-width: 760px) {
+  .ed-nav .nav-links { display: none; }
+  .ed-logo-word { font-size: 13px; }
+  .ed-hero { min-height: 600px; }
+  .ed-hero-name { inset: 13svh 0 auto; }
+  .ed-hero-name .row-serif { font-size: 21vw; }
+  .ed-hero-name .row-bold { font-size: 17.4vw; }
+  .ed-hero-portrait { height: 46svh; bottom: 16svh; }
+  .scribble { width: 50%; left: 47%; top: 37%; }
+  .ed-hero-foot { flex-direction: column; align-items: stretch; gap: 18px; }
+  .ed-hero-cta { justify-items: stretch; }
+  .ed-hero-cta .btn { width: 100%; }
+  .ed-scroll { display: none; }
+  .ed-statement { font-size: 11vw; }
+  .ed-scene { height: 360vh; }
+  .ed-scene-frame { width: min(calc(100% - 2 * var(--gutter)), calc((100svh - 170px) * 4 / 5)); }
+  .ed-scene-sign { width: 104vw; }
+  .ed-video { aspect-ratio: 4 / 5; }
+  .ed-video .vsl-play { width: 56px; height: 56px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .contour svg { animation: none; }
+  .ed-scene { height: auto; padding: 0 0 var(--section); }
+  main > .ed-scene > .ed-scene-pin { position: relative; height: auto; display: block; overflow: visible; }
+  .ed-scene-pin > .ed-hero { height: 100svh; min-height: 640px; transform: none; clip-path: none; opacity: 1; margin-bottom: var(--section); }
+  .ed-scene .ed-marquee { display: none; }
+  .ed-scene-frame { margin: 0 auto; transform: none; }
+  .ed-scene-sign { display: none; }
+  .ed-hero-portrait { transform: translateX(-50%); }
+}

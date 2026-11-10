@@ -1,0 +1,24 @@
+{
+  "project": "Vendo Desaparece / Ricardo Arroyo",
+  "stack": "Static HTML, CSS, vanilla JavaScript",
+  "decisions": [
+    {
+      "date": "2026-11-09",
+      "direction": "VSL first; headline then landscape video, one primary conversion path",
+      "palette": [
+        "#0B0B0D",
+        "#E9D7B4",
+        "#E8E4DB"
+      ],
+      "motion": "Reversible procedural particle illustration after VSL; static on mobile and reduced motion",
+      "copy": "User-selected $10,000 headline; currency and period not inferred",
+      "video": "Reserved section only. Source intentionally empty at user request.",
+      "inspiration": "Lusion composition; 21st cinematic hero metadata reviewed. Existing primitives reused without React imports."
+    },
+    {
+      "date": "2026-11-09",
+      "reference": "https://landonorris.com/",
+      "application": "Large mixed-type Ricardo masthead, portrait collage and subtle contour lines in the light mentor chapter; keep VSL-first hero and champagne palette."
+    }
+  ]
+}
