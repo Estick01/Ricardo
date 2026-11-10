@@ -1,29 +1,31 @@
 /**
- * Calculadora de rentabilidad.
- *   leads       = inversión / costo por lead
- *   ventas      = leads × conversión
- *   facturación = ventas × ticket
- *   CAC         = inversión / ventas
- *   utilidad    = facturación × margen − inversión
- *   ROAS        = facturación / inversión
+ * Proyección de ventas: mismo modelo que la hoja "PROYECCIÓN VENTAS" de Ricardo.
+ *   ventas necesarias   = meta ÷ ticket promedio
+ *   presupuesto de ads  = ventas necesarias × CPA
+ *   ROAS                = meta ÷ presupuesto de ads
+ *   semana (×4)         = presupuesto ÷ 4  ·  meta ÷ 4
+ *   día                 = presupuesto ÷ días · ventas ÷ días · meta ÷ días
  */
 (function () {
   "use strict";
   const { code, locale } = window.VD_CONFIG.currency;
   const money = new Intl.NumberFormat(locale, { style: "currency", currency: code, maximumFractionDigits: 0 });
-  const num = new Intl.NumberFormat(locale, { maximumFractionDigits: 0 });
+  const num = new Intl.NumberFormat(locale, { maximumFractionDigits: 1 });
+  const WEEKS = 4;
 
   function compute(v) {
-    const leads = v.cpl > 0 ? v.spend / v.cpl : 0;
-    const sales = leads * (v.conv / 100);
-    const revenue = sales * v.ticket;
+    const units = v.ticket > 0 ? v.goal / v.ticket : 0;
+    const budget = units * v.cpa;
+    const days = Math.max(1, v.days);
     return Object.freeze({
-      leads,
-      sales,
-      revenue,
-      cac: sales > 0 ? v.spend / sales : 0,
-      profit: revenue * (v.margin / 100) - v.spend,
-      roas: v.spend > 0 ? revenue / v.spend : 0,
+      units,
+      budget,
+      roas: budget > 0 ? v.goal / budget : 0,
+      weekAds: budget / WEEKS,
+      weekSales: v.goal / WEEKS,
+      dayBudget: budget / days,
+      dayOrders: units / days,
+      dayRevenue: v.goal / days,
     });
   }
 
@@ -31,11 +33,9 @@
     const from = Number(el.dataset.v || 0);
     el.dataset.v = String(to);
     const start = performance.now();
-    const dur = 600;
     const step = (t) => {
-      const k = Math.min(1, (t - start) / dur);
-      const e = 1 - Math.pow(1 - k, 3);
-      el.textContent = fmt(from + (to - from) * e);
+      const k = Math.min(1, (t - start) / 500);
+      el.textContent = fmt(from + (to - from) * (1 - Math.pow(1 - k, 3)));
       if (k < 1) requestAnimationFrame(step);
     };
     requestAnimationFrame(step);
@@ -47,27 +47,24 @@
     const inputs = Array.from(root.querySelectorAll("input[type=range]"));
     const out = (n) => root.querySelector('[data-out="' + n + '"]');
     const res = (n) => root.querySelector('[data-r="' + n + '"]');
-    const labels = {
-      spend: (x) => money.format(x), cpl: (x) => money.format(x), ticket: (x) => money.format(x),
-      conv: (x) => x + " %", margin: (x) => x + " %",
-    };
+    const labels = { goal: money.format, ticket: money.format, cpa: money.format, days: (x) => x + " días" };
     let tracked = false;
 
     const update = () => {
       const values = Object.freeze(Object.fromEntries(inputs.map((i) => [i.name, Number(i.value)])));
       inputs.forEach((i) => {
-        const pct = ((i.value - i.min) / (i.max - i.min)) * 100;
-        i.style.setProperty("--fill", pct + "%");
+        i.style.setProperty("--fill", ((i.value - i.min) / (i.max - i.min)) * 100 + "%");
         out(i.name).textContent = labels[i.name](Number(i.value));
       });
       const r = compute(values);
-      animateNumber(res("revenue"), r.revenue, (x) => money.format(x));
-      animateNumber(res("leads"), r.leads, (x) => num.format(x));
-      animateNumber(res("sales"), r.sales, (x) => num.format(x));
-      animateNumber(res("cac"), r.cac, (x) => money.format(x));
-      animateNumber(res("profit"), r.profit, (x) => money.format(x));
-      animateNumber(res("roas"), r.roas, (x) => x.toFixed(2) + "×");
-      res("profit").classList.toggle("neg", r.profit < 0);
+      animateNumber(res("budget"), r.budget, money.format);
+      animateNumber(res("units"), r.units, (x) => num.format(Math.ceil(x * 10) / 10));
+      animateNumber(res("roas"), r.roas, (x) => x.toFixed(1) + "×");
+      animateNumber(res("dayBudget"), r.dayBudget, money.format);
+      animateNumber(res("dayOrders"), r.dayOrders, (x) => num.format(x));
+      animateNumber(res("dayRevenue"), r.dayRevenue, money.format);
+      root.querySelectorAll('[data-w="ads"]').forEach((td) => { td.textContent = money.format(r.weekAds); });
+      root.querySelectorAll('[data-w="sales"]').forEach((td) => { td.textContent = money.format(r.weekSales); });
     };
 
     inputs.forEach((i) => i.addEventListener("input", () => {

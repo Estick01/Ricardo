@@ -29,5 +29,14 @@ window.VD_CONFIG = Object.freeze({
     captions: "",     // archivo .vtt de subtítulos (solo type "file")
   }),
 
+  /* Oferta (modelo ATIDOA): "antes y después del precio".
+     value  = valor de la oferta (se muestra tachado si hay price)
+     price  = precio real de hoy; vacío = se presenta en la asesoría o la llamada */
+  offer: Object.freeze({
+    value: 1000000,
+    price: null,
+    liveWhen: "Viernes · 7:00",   // confirmar a. m. / p. m. y zona horaria
+  }),
+
   currency: Object.freeze({ code: "COP", locale: "es-CO" }),
 });

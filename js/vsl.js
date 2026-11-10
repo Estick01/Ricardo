@@ -12,7 +12,7 @@
     if (!url) return null;
     const iframe = document.createElement("iframe");
     iframe.src = url;
-    iframe.title = "Presentación de Vendo Desaparece por Ricardo Arroyo";
+    iframe.title = "Presentación de Vende o Desaparece por Ricardo Arroyo";
     iframe.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen";
     iframe.allowFullscreen = true;
     return iframe;

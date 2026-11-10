@@ -67,3 +67,13 @@ Estas referencias orientan la estructura; no demuestran una tasa de conversión 
 - Retrato nuevo: `assets/cut/hero-retrato.webp` (1080×1320), sacado de un fotograma 1080p del Drive del cliente (APRENDE A HACER ANUNCIOS / C7301) y recortado con rembg (modelo BiRefNet-portrait). El anterior `assets/cut/hero.webp` se conserva sin uso.
 - Se corrigió la regla `main > section > :not(.contour)`: ahora usa `:where()` para no anular el `position: absolute` del nombre, el retrato y el pie del hero.
 - Captar, Cerrar y Ricardo también usan recortes nuevos en 1080p (`captar-retrato.webp`, `cerrar-retrato.webp`, `ricardo-retrato.webp`), de las tomas B-ROLLS/C7199, APRENDE A HACER ANUNCIOS/C7301 y VENDER POR REDES SOCIALES/C7601. Los archivos anteriores se conservan sin uso.
+
+## Marca, ATIDOA y resultados — 10 de noviembre de 2026
+- La marca es **Vende o Desaparece** (antes "Vendo Desaparece").
+- Hero: el slogan "El sistema que te ayuda a facturar más de $10,000 con pauta publicitaria." es el titular principal; el retrato queda a la derecha (en pantallas de hasta 1100 px, debajo del texto).
+- Estructura ATIDOA: Atención (hero) · Transformación (`#resultados`, antes/después de clientes + empresas aliadas) · Interés y Deseo (`#oferta`, valor, precio y asesoría en vivo) · Objeciones (`#para-quien` + FAQ) · Acción (CTA por variante: llamada o checkout).
+- Calculadora (`js/calculator.js`): mismo modelo que la hoja "PROYECCIÓN VENTAS" — ventas = meta ÷ ticket, presupuesto = ventas × CPA, ROAS = meta ÷ presupuesto, plan semanal (÷4) y diario (÷ días).
+- Oferta (`js/config.js` → `offer`): `value` = valor de la oferta, `price` = precio real (si se llena, el valor aparece tachado), `liveWhen` = día y hora de la asesoría en vivo. `js/offer.js` los pinta.
+- Casos publicados con datos del cliente: Dr. Felipe Zambrano (octubre 2026) y Dra. Andrea Mora (reporte semanal). Confirmar autorización de cada cliente para mostrar su nombre y cifras.
+- Pendiente: entrevista de La Cava del Cerdo (Drive bloqueó la descarga por cuota), cifras de B Nova, precio final y hora exacta de la asesoría.
+- Fotos profesionales del Drive: `assets/gallery/profesional.webp` (en la galería) y `assets/gallery/campo.webp` (sin uso por ahora).
