@@ -1,0 +1,58 @@
+/* PROGRAMA · 11 pasos con gráfica de partículas fija a la derecha (js/steps.js) */
+.pg { padding-block: var(--section, 88px); }
+.pg-head { max-width: 640px; margin-bottom: clamp(36px, 5vw, 64px); }
+.pg-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 6vw, 96px); align-items: start; }
+
+.pg-list { list-style: none; margin: 0; padding: 0 0 22svh; }
+.pg-list > :first-child { border-top: 1px solid #ffffff1c; }
+.pg-item {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 8px;
+  padding: clamp(18px, 2.4svh, 26px) 0;
+  border-bottom: 1px solid #ffffff1c;
+  opacity: .42;
+  transition: opacity .45s ease;
+}
+.pg-item.is-active { opacity: 1; }
+.pg-n { font: 400 22px/1.1 var(--serif); color: var(--gold, #c6a777); font-variant-numeric: tabular-nums; }
+.pg-item h3 { margin: 0; font: 600 clamp(17px, 1.5vw, 21px)/1.25 var(--sans); letter-spacing: -.02em; color: #f8f7f4; }
+.pg-item p { margin: 6px 0 0; font-size: 14px; line-height: 1.5; color: #bab9b5; max-width: 40ch; }
+.pg-item.is-active h3 { color: var(--gold-hi, #e9d7b4); }
+
+.pg-stage { position: sticky; top: 14svh; height: 72svh; max-height: 640px; display: grid; grid-template-rows: 1fr auto; }
+.pg-canvas { width: 100%; height: 100%; display: block; }
+.pg-stage-foot {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 14px;
+  border-top: 1px solid #ffffff14;
+  font: 600 10px/1.3 var(--sans);
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: #8f8b84;
+  font-variant-numeric: tabular-nums;
+}
+.pg-stage-foot [data-pg-phase] { color: var(--gold-hi, #e9d7b4); }
+
+/* Oferta debajo de los pasos: el bloque de la izquierda ya no lleva temario */
+.short-program .short-includes { margin-bottom: 0; }
+
+@media (max-width: 900px) {
+  .pg-grid { grid-template-columns: 1fr; gap: 0; }
+  /* En móvil la gráfica queda fija arriba y los pasos pasan por debajo */
+  .pg-stage {
+    order: -1;
+    top: 64px;
+    z-index: 2;
+    height: 34svh;
+    min-height: 220px;
+    background: linear-gradient(#0b0b0d 82%, rgba(11, 11, 13, 0));
+    padding-bottom: 18px;
+  }
+  .pg-stage-foot { border-top: 0; padding-top: 6px; }
+  .pg-list { padding-bottom: 12svh; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pg-item { transition: none; }
+}

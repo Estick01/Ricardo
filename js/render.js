@@ -20,12 +20,10 @@
   const delay = (i) => "--d:" + (i % 4) * 0.08 + "s";
 
   function renderModules(root) {
-    C.modules.forEach((m, i) => {
-      root.appendChild(h("article", { class: "glass module", "data-reveal": "", style: delay(i) }, [
-        h("span", { class: "module-n", text: m.n }),
-        h("div", {}, [h("h3", { text: m.title }), h("p", { text: m.text })]),
-      ]));
-    });
+    C.modules.forEach((m) => root.appendChild(h("li", {}, [
+      h("span", { class: "short-module-n", text: m.n, "aria-hidden": "true" }),
+      h("span", { text: m.title }),
+    ])));
   }
 
   function caseField(label, value) {

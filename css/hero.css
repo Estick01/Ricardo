@@ -1,0 +1,198 @@
+/* HERO · basado en la referencia aprobada por el cliente:
+   slogan centrado, tarjeta de video con marca + retrato, un solo CTA. */
+.ref-hero {
+  position: relative;
+  isolation: isolate;
+  background: #0b0b0d;
+  color: #f8f7f4;
+  padding: clamp(96px, 13svh, 132px) var(--gutter, 20px) 0;
+  overflow: clip;
+}
+.ref-hero::before {
+  content: "";
+  position: absolute;
+  inset: 30% 10% auto;
+  height: 70%;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(50% 50% at 50% 50%, rgba(198, 167, 119, .14), transparent 70%);
+}
+.ref-hero-inner { width: min(100%, 1040px); margin-inline: auto; text-align: center; }
+.ref-kicker {
+  margin: 0 0 clamp(18px, 2.4svh, 28px);
+  font: 600 11px/1.4 var(--sans);
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--gold, #c6a777);
+}
+.ref-kicker span { margin-inline: 12px; opacity: .5; }
+.ref-slogan {
+  margin: 0 auto;
+  max-width: 17ch;
+  font: 600 clamp(38px, 5.6vw, 84px)/1.04 var(--sans);
+  letter-spacing: -.045em;
+  text-wrap: balance;
+  color: #f8f7f4;
+}
+.ref-slogan em { font: inherit; letter-spacing: inherit; color: var(--gold-hi, #e9d7b4); background: none; animation: none; padding: 0; -webkit-text-fill-color: currentColor; white-space: nowrap; }
+
+/* Tarjeta de video */
+.ref-video {
+  position: relative;
+  margin: clamp(32px, 4.5svh, 52px) auto 0;
+  width: min(100%, 860px);
+  aspect-ratio: 16 / 9;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #16150f;
+  border: 1px solid #ffffff1f;
+  box-shadow: 0 40px 80px -40px #000;
+  text-align: left;
+}
+.ref-video-poster { position: absolute; inset: 0; }
+.ref-video-img {
+  position: absolute;
+  inset: 0 0 0 auto;
+  width: 78%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 78% 30%;
+}
+.ref-video-poster::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #16150f 0%, #16150f 24%, rgba(22, 21, 15, .82) 40%, rgba(22, 21, 15, 0) 62%);
+}
+.ref-video-copy {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: clamp(22px, 6%, 56px) clamp(20px, 6%, 56px) clamp(18px, 5%, 40px);
+  max-width: 54%;
+}
+.ref-video-brand {
+  margin: 0;
+  font: 700 clamp(26px, 4.6vw, 54px)/.95 var(--sans);
+  letter-spacing: -.05em;
+  color: #f8f7f4;
+}
+.ref-video-brand span { color: var(--gold-hi, #e9d7b4); }
+.ref-video-play { display: flex; align-items: center; gap: 16px; margin-top: auto; }
+.ref-video .vsl-play { position: relative; width: 56px; height: 56px; flex: none; }
+.ref-video .vsl-play svg { width: 20px; height: 20px; }
+.ref-video .vsl-play:disabled { cursor: default; opacity: .85; }
+.ref-video .vsl-play:disabled::before { animation: none; opacity: .3; }
+.ref-video .vsl-play:disabled:hover { transform: none; }
+.ref-video-meta { font: 600 10px/1.3 var(--sans); letter-spacing: .18em; text-transform: uppercase; color: #e0dcd5; }
+.ref-video-sign { margin: clamp(16px, 4%, 32px) 0 0; font: 600 9px/1.3 var(--sans); letter-spacing: .2em; text-transform: uppercase; color: #9f9a91; }
+.ref-video-sign span { opacity: .6; }
+.ref-video video, .ref-video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; background: #000; }
+.ref-video .video-error { position: absolute; left: 0; right: 0; bottom: 0; margin: 0; padding: 10px; background: #000c; font-size: 13px; text-align: center; }
+
+/* CTA */
+.ref-hero-cta { display: grid; justify-items: center; gap: 14px; margin-top: clamp(24px, 3.4svh, 36px); }
+.ref-hero-note { margin: 0; font-size: 12px; color: #a5a29d; }
+
+.ref-hero-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  width: min(100%, 1040px);
+  margin: clamp(40px, 6svh, 64px) auto 0;
+  padding: 20px 0 28px;
+  border-top: 1px solid #ffffff14;
+  font: 600 10px/1.3 var(--sans);
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: #8f8b84;
+}
+.ref-hero-foot a { color: #cbc7bf; text-decoration: none; }
+.ref-hero-foot a:hover { color: var(--gold-hi, #e9d7b4); }
+
+/* Entrada suave: solo con JS de movimiento activo */
+.motion-ready .ref-kicker,
+.motion-ready .ref-slogan,
+.motion-ready .ref-video,
+.motion-ready .ref-hero-cta { animation: heroRise 1.1s var(--ease, cubic-bezier(.22, 1, .36, 1)) both; }
+.motion-ready .ref-slogan { animation-delay: .06s; }
+.motion-ready .ref-video { animation-delay: .18s; }
+.motion-ready .ref-hero-cta { animation-delay: .3s; }
+html.intro-playing .ref-hero * { animation-play-state: paused !important; }
+
+/* Ricardo: foto distinta a la del hero para no repetirla */
+.short-mentor > img.short-mentor-photo { object-position: 50% 28%; }
+
+/* Cierre con la foto de la referencia a todo el ancho.
+   La foto original es pequeña (514×640): una copia desenfocada llena la pantalla
+   y encima va la foto nítida, fundida hacia los lados para que no se note el borde. */
+.short-final.has-photo { position: relative; isolation: isolate; overflow: clip; min-height: min(100svh, 980px); display: grid; place-items: center; padding-block: clamp(96px, 14svh, 150px); }
+.short-final.has-photo .short-final-photo { position: absolute; inset: 0; z-index: -1; }
+.short-final.has-photo .short-final-photo::before,
+.short-final.has-photo .short-final-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("../assets/gallery/final.webp?v=20261112h") center 30% / cover no-repeat;
+}
+.short-final.has-photo .short-final-photo::before { inset: -40px; filter: grayscale(.85) brightness(.3) blur(22px); transform: scale(1.08); }
+.short-final.has-photo .short-final-photo::after {
+  background-size: auto 100%;
+  background-position: center top;
+  filter: grayscale(.85) brightness(.5);
+  -webkit-mask-image: linear-gradient(90deg, transparent 18%, #000 36%, #000 64%, transparent 82%);
+  mask-image: linear-gradient(90deg, transparent 18%, #000 36%, #000 64%, transparent 82%);
+}
+.short-final.has-photo::after { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: radial-gradient(70% 70% at 50% 50%, transparent 40%, rgba(11, 11, 13, .75) 100%), linear-gradient(#0b0b0d 0, transparent 14%, transparent 86%, #0b0b0d 100%); }
+
+@media (max-width: 600px) {
+  .ref-hero { padding-top: 92px; }
+  .ref-slogan { font-size: clamp(34px, 10.4vw, 46px); }
+  .ref-video { aspect-ratio: 4 / 5; border-radius: 14px; }
+  .ref-video-img { width: 100%; object-position: 72% 0; }
+  .ref-video-poster::after { background: linear-gradient(0deg, #16150f 0%, #16150f 22%, rgba(22, 21, 15, .7) 42%, rgba(22, 21, 15, 0) 62%); }
+  .ref-video-copy { max-width: none; justify-content: flex-end; gap: 14px; }
+  .ref-video-brand { font-size: 34px; }
+  .ref-video-play { margin-top: 0; }
+  .ref-video .vsl-play { width: 48px; height: 48px; }
+  .ref-video-sign { margin-top: 0; }
+  .ref-hero-cta .btn { width: 100%; justify-content: center; font-size: 11px; letter-spacing: .1em; padding-inline: 16px; }
+  .ref-hero-foot { padding-bottom: 20px; }
+  .ref-hero-foot > span { display: none; }
+  .ref-hero-foot { justify-content: center; }
+  .short-final.has-photo .short-final-photo::after { -webkit-mask-image: none; mask-image: none; background-size: cover; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ref-hero * { animation: none !important; }
+}
+
+/* Firma de Ricardo sobre el retrato: se escribe al terminar la intro */
+.ref-video-scribble { position: absolute; z-index: 2; right: 4%; bottom: 7%; width: 34%; transform: rotate(-7deg); pointer-events: none; }
+.ref-video-scribble .sig { filter: drop-shadow(0 2px 8px rgba(0, 0, 0, .55)); }
+@media (max-width: 600px) {
+  .ref-video-scribble { right: 5%; bottom: auto; top: 46%; width: 52%; }
+}
+
+/* Strabe: dato de ventas en una sola fila a todo el ancho, debajo de las tres empresas */
+.short-strabe-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px 32px;
+  margin-top: 24px;
+  padding: 22px 0;
+  border-block: 1px solid #ffffff20;
+}
+.short-strabe-row .ed-kicker { margin: 0; }
+.short-strabe-row strong { font: 700 clamp(28px, 3.2vw, 46px)/1.1 var(--display); font-stretch: 75%; letter-spacing: -.03em; color: var(--gold-hi, #e9d7b4); font-variant-numeric: tabular-nums; }
+.short-strabe-row small { font: 500 12px/1 var(--sans); letter-spacing: .08em; }
+.short-strabe-row p { margin: 0; font-size: 12px; color: var(--fg-soft, #bab9b5); }
+@media (max-width: 600px) {
+  .short-strabe-row { flex-direction: column; gap: 8px; }
+  .short-strabe-row .ed-kicker { font-size: 10px; }
+}

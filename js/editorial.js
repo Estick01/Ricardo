@@ -4,7 +4,6 @@
  *  - [data-contour]        líneas topográficas SVG generadas
  *  - [data-tone-section]   cambia html[data-tone] (dark/light) según la sección en pantalla
  *  - [data-hero-portrait]  expone --hp (0→1) mientras el hero sale de pantalla
- *  - [data-scene]          escena fija: --hs (0→1) encoge el hero hasta el marco del video; --sp (0→1) hace crecer el video
  *  - [data-fan]            expone --open (0→1): el abanico de tarjetas se abre al entrar en pantalla
  *  - [data-drift]          desplaza filas de texto en horizontal con el scroll (± factor)
  *  - [data-drift-y]        desplaza figuras en vertical con el scroll (±1)
@@ -17,9 +16,6 @@
   const mobile = window.matchMedia("(max-width: 760px)");
   const DRIFT_PX = 0.12;   // fracción del ancho de ventana que se mueve una fila [data-drift]
   const DRIFT_Y_PX = 70;   // px máximos de [data-drift-y]
-  const HERO_PHASE = 0.27;   // fracción del recorrido de la escena en la que el hero se encoge
-  const FRAME_START = 0.36;  // escala inicial del marco del video (igual que en css/editorial.css)
-  const FRAME_RADIUS = 10;   // px, radio del marco del video
   const THEME = Object.freeze({ dark: "#0B0B0D", light: "#ECE7DE" });
 
   const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
@@ -130,9 +126,6 @@
     const driftsY = Array.from(document.querySelectorAll("[data-drift-y]")).map((el) => ({
       el, dir: Number(el.dataset.driftY) || 0, sec: el.closest("section"),
     }));
-    const scenes = Array.from(document.querySelectorAll("[data-scene]")).map((el) => ({
-      el, pin: el.querySelector(".ed-scene-pin"), frame: el.querySelector(".ed-scene-frame"),
-    }));
     const fans = Array.from(document.querySelectorAll("[data-fan]"));
     const easeOut = (t) => 1 - Math.pow(1 - t, 3);
     const speeds = Array.from(document.querySelectorAll("[data-speed]")).map((el) => ({
@@ -148,23 +141,6 @@
         const r = heroSection.getBoundingClientRect();
         hero.style.setProperty("--hp", still ? "0" : clamp(-r.top / r.height, 0, 1).toFixed(4));
       }
-      scenes.forEach(({ el, pin, frame }) => {
-        const r = el.getBoundingClientRect();
-        const raw = clamp(-r.top / Math.max(1, r.height - vh), 0, 1);
-        const hs = reduce ? 0 : clamp(raw / HERO_PHASE, 0, 1);
-        const sp = reduce ? 1 : clamp((raw - HERO_PHASE) / (1 - HERO_PHASE), 0, 1);
-        el.style.setProperty("--hs", hs.toFixed(4));
-        el.style.setProperty("--sp", sp.toFixed(4));
-        el.classList.toggle("hero-gone", hs >= 1);
-        if (pin && frame && frame.offsetWidth) {
-          // el hero termina del mismo tamaño y forma que el marco del video en su estado inicial
-          const end = (FRAME_START * frame.offsetWidth) / pin.offsetWidth;
-          const visibleH = (FRAME_START * frame.offsetHeight) / end;
-          el.style.setProperty("--hero-end", end.toFixed(4));
-          el.style.setProperty("--hero-clip", Math.max(0, (pin.offsetHeight - visibleH) / 2).toFixed(1) + "px");
-          el.style.setProperty("--hero-radius", ((FRAME_RADIUS * FRAME_START) / end).toFixed(1) + "px");
-        }
-      });
       fans.forEach((el) => {
         const r = el.getBoundingClientRect();
         const p = reduce ? 1 : clamp((vh * 0.92 - r.top) / (vh * 0.55), 0, 1);

@@ -74,7 +74,7 @@
 .ed-allies-track > * { flex: none; white-space: nowrap; font-size: clamp(26px, 3.2vw, 52px); line-height: 1; }
 .ed-allies-track span { font-family: var(--display); font-stretch: 72%; font-weight: 800; text-transform: uppercase; }
 .ed-allies-track i { font-family: var(--serif); font-style: normal; color: var(--accent); }
-.ed-allies:hover .ed-allies-track { animation-play-state: paused; }
+/* La cinta continúa al pasar el cursor. */
 @keyframes allies { to { transform: translateX(-50%); } }
 
 /* ---------- PROYECCIÓN DE VENTAS ---------- */
@@ -386,3 +386,29 @@
 }
 .ed-final .cg-wide { z-index: 1; opacity: .6; }
 .ed-final .ed-final-inner { z-index: 2; }
+
+/* ==========================================================================
+   CTA PETRÓLEO (#0D4C5D) en secciones claras · champagne en las oscuras
+   Contraste: petróleo sobre crema ≈ 7,7:1 · texto blanco sobre petróleo ≈ 9,5:1
+   ========================================================================== */
+:root { --teal: #0D4C5D; --teal-hi: #12657A; --teal-deep: #093A47; }
+.btn-teal, [data-tone-section="light"] .btn-gold {
+  background: var(--teal); border-color: var(--teal); color: #fff;
+  box-shadow: 0 12px 30px -14px rgba(13, 76, 93, .7);
+}
+.btn-teal:hover, [data-tone-section="light"] .btn-gold:hover { background: var(--teal-hi); border-color: var(--teal-hi); box-shadow: 0 16px 36px -14px rgba(13, 76, 93, .8); }
+.btn-teal:focus-visible, [data-tone-section="light"] .btn-gold:focus-visible { outline-color: var(--teal); }
+/* botón del menú: sigue el tono de la sección que se está viendo */
+html[data-tone="light"] .ed-chip { background: var(--teal); color: #fff; }
+html[data-tone="light"] .ed-chip:hover { background: var(--teal-hi); }
+
+/* Tarjeta del precio: clara, con el botón petróleo como protagonista */
+.ed-offer .ed-price {
+  background: #fbf9f5; color: var(--ink); border: 1px solid rgba(20, 20, 22, .1);
+  box-shadow: 0 40px 90px -40px rgba(20, 20, 22, .35);
+}
+.ed-offer .ed-price-label { color: var(--gold-deep); }
+.ed-offer .ed-price-value strong { color: var(--teal); }
+.ed-offer .ed-price-value s { color: rgba(20, 20, 22, .4); }
+.ed-offer .ed-price-today, .ed-offer .ed-live span { color: rgba(20, 20, 22, .64); }
+.ed-offer .ed-live { border-color: rgba(20, 20, 22, .1); }

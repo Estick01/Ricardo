@@ -80,3 +80,25 @@ Estas referencias orientan la estructura; no demuestran una tasa de conversión 
 
 ## Caché en producción
 GitHub Pages sirve CSS y JS con `Cache-Control: max-age=600`. Para que nadie mezcle un HTML nuevo con un JS viejo, `index.html` carga cada archivo con `?v=AAAAMMDDx`. **En cada despliegue que cambie CSS o JS, sube ese valor** (buscar y reemplazar `?v=` en `index.html`).
+
+
+## Versión corta — 11 de noviembre de 2026
+Esta revisión sustituye la estructura y escena de video descritas arriba.
+- Hero conservado; video horizontal estático, sin presentación por scroll ni firma superpuesta.
+- Nueve secciones, resultados con inversión/ventas, empresas y temario desplegable de 11 módulos.
+- Andrea Mora: inversión COP 950.000; ventas COP 18.272.700, confirmadas por el cliente.
+- Strabe: ventas totales Shopify COP 2.897.674.426 (01/09/2023–10/11/2026), con captura original desplegable.
+- Calculadora: inversión mínima/inicial COP 1.000.000; ventas estimadas = floor(inversión/CPA) × ticket. El importe principal es facturación, no utilidad.
+- `css/compact.css` contiene la composición actual; `js/demos.js` reproduce clips visibles y respeta movimiento reducido y pausas manuales.
+- `assets/video/strabe-anuncio.mp4`: anuncio real descargado de la biblioteca Meta de Strabe (page 237189060987963), comprimido para web.
+- `assets/video/whatsapp-demo.mp4`: demostración ilustrativa creada localmente, identificada como simulación en la página. Guion/render en `.claude/revision/render_chat.py`.
+- Marquee sin pausa al pasar el cursor; retiradas Tienda de Muebles y Tienda Túquerres.
+- Sigue pendiente configurar el VSL completo, checkout, agenda, endpoint del formulario y política real en `js/config.js`. El video adjunto de WhatsApp es una grabación del diseño anterior, no el VSL.
+- Validación: vista escritorio 1440 px y móvil 390 px, calculadora con teclado, reproducción de ambos clips, temario y apertura/cierre del formulario.
+
+## Hero de la referencia y 11 pasos — 12 de noviembre de 2026
+- Hero según la referencia aprobada por el cliente: slogan centrado, tarjeta de video (marca + retrato) y un solo CTA (`css/hero.css`). La intro con la firma vuelve a mostrarse en la primera visita de la sesión.
+- Orden: hero → resultados → método → calculadora → Ricardo → 11 pasos → oferta → FAQ → cierre.
+- "11 pasos. Un sistema.": lista desde `VD_CONTENT.modules` con gráfica de partículas que cambia de forma por fase (`js/steps.js`, `css/steps.css`). Las descripciones de cada módulo son provisionales: confirmarlas con Ricardo.
+- Strabe: ventas de Shopify en una fila a todo el ancho, sin enlace al reporte. Caso del Dr. Felipe sin la nota de pagos pendientes.
+- Cierre con `assets/gallery/final.webp` a todo el ancho (capa desenfocada + foto nítida). Si llega una versión de mayor resolución, reemplazar ese archivo.

@@ -1,79 +1,41 @@
-/**
- * Proyección de ventas: mismo modelo que la hoja "PROYECCIÓN VENTAS" de Ricardo.
- *   ventas necesarias   = meta ÷ ticket promedio
- *   presupuesto de ads  = ventas necesarias × CPA
- *   ROAS                = meta ÷ presupuesto de ads
- *   semana (×4)         = presupuesto ÷ 4  ·  meta ÷ 4
- *   día                 = presupuesto ÷ días · ventas ÷ días · meta ÷ días
- */
+/** Sales projection from an ad budget. COP. This estimates revenue, not profit. */
 (function () {
   "use strict";
   const { code, locale } = window.VD_CONFIG.currency;
   const money = new Intl.NumberFormat(locale, { style: "currency", currency: code, maximumFractionDigits: 0 });
   const num = new Intl.NumberFormat(locale, { maximumFractionDigits: 1 });
-  const WEEKS = 4;
-
   function compute(v) {
-    const units = v.ticket > 0 ? v.goal / v.ticket : 0;
-    const budget = units * v.cpa;
-    const days = Math.max(1, v.days);
-    return Object.freeze({
-      units,
-      budget,
-      roas: budget > 0 ? v.goal / budget : 0,
-      weekAds: budget / WEEKS,
-      weekSales: v.goal / WEEKS,
-      dayBudget: budget / days,
-      dayOrders: units / days,
-      dayRevenue: v.goal / days,
-    });
+    const budget = Math.max(0, Number(v.budget) || 0);
+    const ticket = Math.max(0, Number(v.ticket) || 0);
+    const cpa = Math.max(0, Number(v.cpa) || 0);
+    const days = Math.max(1, Number(v.days) || 1);
+    const units = cpa > 0 ? Math.floor(budget / cpa) : 0;
+    const revenue = units * ticket;
+    return Object.freeze({ budget, units, revenue, roas: budget > 0 ? revenue / budget : 0, dayBudget: budget / days, days });
   }
-
-  function animateNumber(el, to, fmt) {
-    const from = Number(el.dataset.v || 0);
-    el.dataset.v = String(to);
-    const start = performance.now();
-    const step = (t) => {
-      const k = Math.min(1, (t - start) / 500);
-      el.textContent = fmt(from + (to - from) * (1 - Math.pow(1 - k, 3)));
-      if (k < 1) requestAnimationFrame(step);
-    };
-    requestAnimationFrame(step);
-  }
-
   function init() {
     const root = document.querySelector("[data-calc]");
     if (!root) return;
-    const inputs = Array.from(root.querySelectorAll("input[type=range]"));
-    const out = (n) => root.querySelector('[data-out="' + n + '"]');
-    const res = (n) => root.querySelector('[data-r="' + n + '"]');
-    const labels = { goal: money.format, ticket: money.format, cpa: money.format, days: (x) => x + " días" };
+    const inputs = [...root.querySelectorAll("input[type=range]")];
+    const set = (key, value) => { const el = root.querySelector('[data-r="' + key + '"]'); if (el) el.textContent = value; };
     let tracked = false;
-
-    const update = () => {
-      const values = Object.freeze(Object.fromEntries(inputs.map((i) => [i.name, Number(i.value)])));
-      inputs.forEach((i) => {
-        i.style.setProperty("--fill", ((i.value - i.min) / (i.max - i.min)) * 100 + "%");
-        const o = out(i.name), fmt = labels[i.name];
-        if (o && fmt) o.textContent = fmt(Number(i.value));
+    function update() {
+      const v = Object.fromEntries(inputs.map(i => [i.name, Number(i.value)]));
+      inputs.forEach(i => {
+        const label = i.name === "days" ? i.value + " días" : money.format(Number(i.value));
+        root.querySelector('[data-out="' + i.name + '"]').textContent = label;
+        i.setAttribute("aria-valuetext", label);
+        i.style.setProperty("--fill", ((Number(i.value) - Number(i.min)) / (Number(i.max) - Number(i.min))) * 100 + "%");
       });
-      const r = compute(values);
-      animateNumber(res("budget"), r.budget, money.format);
-      animateNumber(res("units"), r.units, (x) => num.format(x));
-      animateNumber(res("roas"), r.roas, (x) => x.toFixed(1) + "×");
-      animateNumber(res("dayBudget"), r.dayBudget, money.format);
-      animateNumber(res("dayOrders"), r.dayOrders, (x) => num.format(x));
-      animateNumber(res("dayRevenue"), r.dayRevenue, money.format);
-      root.querySelectorAll('[data-w="ads"]').forEach((td) => { td.textContent = money.format(r.weekAds); });
-      root.querySelectorAll('[data-w="sales"]').forEach((td) => { td.textContent = money.format(r.weekSales); });
-    };
-
-    inputs.forEach((i) => i.addEventListener("input", () => {
+      const r = compute(v);
+      set("revenue", money.format(r.revenue)); set("units", num.format(r.units));
+      set("roas", num.format(r.roas) + "×"); set("dayBudget", money.format(r.dayBudget)); set("period", r.days + " días");
+    }
+    inputs.forEach(i => i.addEventListener("input", () => {
       update();
       if (!tracked) { tracked = true; window.VD.track("calculator_use"); }
     }));
     update();
   }
-
   window.VD = Object.assign(window.VD || {}, { calculator: { init, compute } });
 })();

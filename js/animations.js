@@ -171,7 +171,7 @@
         if (!e.isIntersecting) return;
         io.unobserve(e.target);
         e.target.classList.add("in");
-        if (e.target.classList.contains("ed-stats") || e.target.classList.contains("ed-case-ba")) countUp(e.target);
+        if (e.target.classList.contains("ed-stats")) countUp(e.target);
       });
     }, { rootMargin: "0px 0px -10% 0px", threshold: 0.15 });
     targets.forEach((el) => io.observe(el));

@@ -1,41 +1,76 @@
-/**
- * CONTENIDO ADMINISTRABLE — módulos, casos, testimonios y FAQ.
- * Casos y testimonios con `verified: false` se ocultan hasta tener información verificada.
- * Reemplázalos solo con información comprobada.
- */
+/* Programa y preguntas actualizados con información de Ricardo, 11 nov 2026. */
 window.VD_CONTENT = Object.freeze({
-  modules: [
-    { n: "01", title: "Fundamentos del sistema", text: "Cómo se conectan captación, atención y medición." },
-    { n: "02", title: "Estrategia de captación", text: "A quién hablarle, dónde y con qué mensaje." },
-    { n: "03", title: "Creación de anuncios", text: "Piezas y textos que generan conversaciones." },
-    { n: "04", title: "Optimización de campañas", text: "Leer datos y decidir qué escalar o apagar." },
-    { n: "05", title: "Atención, WhatsApp e IA", text: "Responder rápido y automatizar con inteligencia artificial para vender 24/7." },
-    { n: "06", title: "Capacitación del equipo", text: "Identifica quién resta (0.8), quién cumple (1) y quién multiplica tu empresa (1.5)." },
-    { n: "07", title: "Seguimiento y cierre", text: "Objeciones, seguimiento y técnicas de cierre." },
-    { n: "08", title: "Medición y escalamiento", text: "CAC, conversión, ROAS y proyección de utilidad." },
+  "modules": [
+    {
+      "n": "01",
+      "title": "Introducción",
+      "text": "Cómo funciona el sistema y qué vas a construir."
+    },
+    {
+      "n": "02",
+      "title": "Mentalidad",
+      "text": "La forma de pensar para vender todos los días."
+    },
+    {
+      "n": "03",
+      "title": "Estudio de mercado",
+      "text": "Quién es tu cliente, qué busca y qué ofrece tu competencia."
+    },
+    {
+      "n": "04",
+      "title": "Branding",
+      "text": "Una marca clara y confiable antes de invertir en pauta."
+    },
+    {
+      "n": "05",
+      "title": "Estructura tus objetivos",
+      "text": "Tu meta de ventas convertida en números de pauta."
+    },
+    {
+      "n": "06",
+      "title": "Magia en pantalla",
+      "text": "Contenido y piezas que detienen el scroll."
+    },
+    {
+      "n": "07",
+      "title": "Creemos tu cuenta de Meta",
+      "text": "Configuras tu cuenta publicitaria paso a paso."
+    },
+    {
+      "n": "08",
+      "title": "Atención al cliente",
+      "text": "Responder rápido y guiar cada conversación a la venta."
+    },
+    {
+      "n": "09",
+      "title": "Benchmarking: copia para escalar",
+      "text": "Aprendes de lo que ya funciona en tu mercado."
+    },
+    {
+      "n": "10",
+      "title": "Sube tu primer anuncio",
+      "text": "Publicas tu campaña con objetivo y presupuesto claros."
+    },
+    {
+      "n": "11",
+      "title": "Automatiza tus procesos",
+      "text": "IA y WhatsApp para atender y vender las 24 horas."
+    }
   ],
-
-  cases: [
-    { verified: false, company: "", industry: "", before: "", strategy: "", result: "", period: "", quote: "" },
-    { verified: false, company: "", industry: "", before: "", strategy: "", result: "", period: "", quote: "" },
-    { verified: false, company: "", industry: "", before: "", strategy: "", result: "", period: "", quote: "" },
-  ],
-
-  testimonials: [
-    { verified: false, name: "", role: "", videoSrc: "", poster: "", quote: "" },
-    { verified: false, name: "", role: "", videoSrc: "", poster: "", quote: "" },
-    { verified: false, name: "", role: "", videoSrc: "", poster: "", quote: "" },
-  ],
-
-  faqs: [
-    { q: "¿Quién puede participar?", a: "Dueños y directivos de negocios en funcionamiento que quieren estructurar su captación y su atención comercial." },
-    { q: "¿Necesito experiencia en publicidad?", a: "No. El programa parte de los fundamentos y avanza hasta la optimización de campañas." },
-    { q: "¿Funciona para mi tipo de negocio?", a: "Está pensado para negocios que venden por conversación (WhatsApp, llamada o asesoría). Si tienes dudas, revisamos tu caso." },
-    { q: "¿Necesito tener un equipo comercial?", a: "No es obligatorio. Si atiendes tú mismo, aprendes el proceso y a apoyarte en inteligencia artificial; si tienes equipo, aprendes a capacitarlo." },
-    { q: "¿Cómo funciona la admisión?", a: "Completas tu perfil empresarial, participas en una evaluación comercial y, si encaja, recibes las instrucciones para ingresar.", variant: "b" },
-    { q: "¿Cómo accedo al programa?", a: "Accedes desde el checkout oficial y recibes tus datos de ingreso por correo.", variant: "a" },
-    { q: "¿Qué incluye el programa?", a: "Los módulos de captación, atención comercial y medición descritos en esta página. El detalle final se confirma antes de tu ingreso." },
-    { q: "¿Cuánto debo invertir en publicidad?", a: "Depende de tu negocio y tus metas. Usa la calculadora como referencia y lo afinamos con tus números reales." },
-    { q: "¿Qué opciones de pago existen?", a: "Las opciones de pago disponibles se muestran en el checkout oficial o se presentan durante la llamada con un asesor." },
-  ],
+  "cases": [],
+  "testimonials": [],
+  "faqs": [
+    {
+      "q": "¿Necesito experiencia en publicidad?",
+      "a": "No. Empiezas con introducción, mentalidad y estudio de mercado, y avanzas hasta publicar anuncios y automatizar procesos."
+    },
+    {
+      "q": "¿La inversión en pauta está incluida?",
+      "a": "No. El presupuesto de anuncios es independiente del programa. La calculadora permite simular desde $1.000.000 COP; la inversión adecuada depende de tu negocio."
+    },
+    {
+      "q": "¿Cómo ingreso?",
+      "a": "Solicita tu acceso y completa tu perfil empresarial. El equipo revisará tu caso y te compartirá las condiciones de ingreso."
+    }
+  ]
 });
