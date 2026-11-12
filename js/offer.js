@@ -11,19 +11,19 @@
     const root = document.querySelector("[data-offer]");
     const offer = CFG.offer;
     if (!root || !offer) return;
-    const money = new Intl.NumberFormat(CFG.currency.locale, { style: "currency", currency: CFG.currency.code, maximumFractionDigits: 0 });
     const value = root.querySelector("[data-offer-value]");
     const anchor = root.querySelector("[data-offer-anchor]");
     const price = root.querySelector("[data-offer-price]");
     const when = root.querySelector("[data-live-when]");
-    if (Number.isFinite(offer.value)) value.textContent = money.format(offer.value);
+    const valueCur = offer.valueCurrency || CFG.currency.code;
+    const plain = (n) => "$" + Number(n).toLocaleString(CFG.currency.locale, { maximumFractionDigits: 0 });
+    if (Number.isFinite(offer.value)) value.textContent = plain(offer.value) + " " + valueCur;
     if (Number.isFinite(offer.price) && offer.price > 0) {
       const cur = offer.priceCurrency || CFG.currency.code;
-      const plain = (n) => "$" + Number(n).toLocaleString(CFG.currency.locale, { maximumFractionDigits: 0 });
-      anchor.textContent = plain(offer.value) + " " + CFG.currency.code;
+      anchor.textContent = plain(offer.value) + " " + valueCur;
       anchor.hidden = false;
       value.textContent = plain(offer.price) + " " + cur;
-      price.textContent = "Incluye las 11 clases y la asesoría en vivo con Ricardo.";
+      price.textContent = "Incluye las 11 clases de por vida y 8 clases en vivo con Ricardo.";
       price.hidden = false;
       root.querySelector(".ed-price-label").textContent = "Precio de hoy";
     } else {

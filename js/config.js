@@ -33,9 +33,10 @@ window.VD_CONFIG = Object.freeze({
      value  = valor de la oferta (se muestra tachado si hay price)
      price  = precio real de hoy (en priceCurrency); vacío = se presenta en la asesoría o la llamada */
   offer: Object.freeze({
-    value: 1000000,
+    value: 250,
+    valueCurrency: "USD",         // moneda del valor tachado (≈ $1.000.000 COP)
     price: 67,
-    priceCurrency: "USD",         // moneda del precio de hoy (el valor tachado va en COP)
+    priceCurrency: "USD",         // moneda del precio de hoy
     liveWhen: "Viernes · 7:00 p. m.", // hora de Colombia
   }),
 
