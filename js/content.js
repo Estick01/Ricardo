@@ -61,16 +61,48 @@ window.VD_CONTENT = Object.freeze({
   "testimonials": [],
   "faqs": [
     {
-      "q": "¿Necesito experiencia en publicidad?",
-      "a": "No. Empiezas con introducción, mentalidad y estudio de mercado, y avanzas hasta publicar anuncios y automatizar procesos."
+      "q": "¿Cómo sé que realmente funciona?",
+      "a": "Ricardo no enseña algo que aprendió en internet. Ha generado más de USD $1 millón en ventas con publicidad digital y ha invertido más de USD $250.000 en pauta. Lo que aprendes viene de campañas, pruebas y aprendizajes en sus propios negocios."
+    },
+    {
+      "q": "¿Por qué aprender de Ricardo?",
+      "a": "Porque además de hacer marketing es empresario: tiene 3 negocios propios, una agencia con más de 30 clientes y un equipo de más de 40 colaboradores. Conoce desde la práctica el reto de conseguir clientes, vender y gestionar un equipo."
+    },
+    {
+      "q": "¿No será otro curso que promete mucho y enseña poco?",
+      "a": "Entendemos la duda. Aquí no hay teorías sueltas: es lo que Ricardo ha probado con dinero real en distintos modelos de negocio, organizado en un sistema de 11 clases."
+    },
+    {
+      "q": "¿Por qué cuesta solo $67 USD si enseña a facturar más de $10.000?",
+      "a": "Porque queremos que sea accesible. Ricardo invirtió años y más de $1.000 millones de pesos en pauta para saber qué funciona y qué errores evitar. Tú accedes a ese aprendizaje por $67 USD, sin recorrer todo ese camino solo."
+    },
+    {
+      "q": "¿Y si pierdo dinero haciendo publicidad?",
+      "a": "Uno de los objetivos del curso es ayudarte a evitar los errores comunes al invertir en pauta. No podemos garantizar que nunca pierdas, pero sí enseñarte a medir, decidir con información y optimizar tu inversión."
+    },
+    {
+      "q": "¿Funciona para un negocio pequeño?",
+      "a": "Sí. La experiencia de Ricardo incluye comercio electrónico, un restaurante y una agencia que atiende a más de 30 negocios distintos. El sistema te enseña a adaptarlo a tu modelo, sin importar su tamaño."
+    },
+    {
+      "q": "¿Necesito inteligencia artificial para vender?",
+      "a": "No es indispensable, pero te da ventaja. Aprendes a usar IA para responder prospectos, guiar conversaciones y hacer seguimiento sin perder clientes por demora."
+    },
+    {
+      "q": "¿Por qué no contrato una agencia y ya?",
+      "a": "Puedes hacerlo. Ricardo dirige una agencia y sabe que el cliente que entiende su sistema comercial toma mejores decisiones, lee sus números y controla su crecimiento."
+    },
+    {
+      "q": "Ya compré otros cursos y no tuve resultados.",
+      "a": "Muchas veces el problema no es la falta de información, sino no tener un proceso claro. Por eso el método son 11 clases en orden que conectan publicidad, captación y atención con IA. No necesitas más cursos: necesitas ejecutar con dirección."
     },
     {
       "q": "¿La inversión en pauta está incluida?",
-      "a": "No. El presupuesto de anuncios es independiente del programa. La calculadora permite simular desde $1.000.000 COP; la inversión adecuada depende de tu negocio."
+      "a": "No. El presupuesto de anuncios es independiente del programa. La calculadora te permite simular desde $1.000.000 COP; la inversión adecuada depende de tu negocio."
     },
     {
-      "q": "¿Cómo ingreso?",
-      "a": "Solicita tu acceso y completa tu perfil empresarial. El equipo revisará tu caso y te compartirá las condiciones de ingreso."
+      "q": "Lo voy a pensar.",
+      "a": "Claro, tómate tu tiempo. Solo considera esto: Ricardo invirtió más de $1.000 millones de pesos en pauta para construir esta experiencia, y tú puedes empezar a aprender de ella por $67 USD. ¿Qué te impide comenzar hoy?"
     }
   ]
 });

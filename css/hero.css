@@ -141,13 +141,12 @@ html.intro-playing .ref-hero * { animation-play-state: paused !important; }
 }
 .short-final.has-photo .short-final-photo::before { inset: -40px; filter: grayscale(.85) brightness(.3) blur(22px); transform: scale(1.08); }
 .short-final.has-photo .short-final-photo::after {
-  background-size: auto 100%;
-  background-position: center top;
-  filter: grayscale(.85) brightness(.5);
-  -webkit-mask-image: linear-gradient(90deg, transparent 18%, #000 36%, #000 64%, transparent 82%);
-  mask-image: linear-gradient(90deg, transparent 18%, #000 36%, #000 64%, transparent 82%);
+  /* Foto a todo el ancho de la página (cover) */
+  background-size: cover;
+  background-position: center 22%;
+  filter: grayscale(.85) brightness(.45);
 }
-.short-final.has-photo::after { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: radial-gradient(70% 70% at 50% 50%, transparent 40%, rgba(11, 11, 13, .75) 100%), linear-gradient(#0b0b0d 0, transparent 14%, transparent 86%, #0b0b0d 100%); }
+.short-final.has-photo::after { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: radial-gradient(95% 85% at 50% 50%, transparent 55%, rgba(11, 11, 13, .5) 100%), linear-gradient(#0b0b0d 0, transparent 14%, transparent 86%, #0b0b0d 100%); }
 
 @media (max-width: 600px) {
   .ref-hero { padding-top: 92px; }
@@ -195,4 +194,37 @@ html.intro-playing .ref-hero * { animation-play-state: paused !important; }
 @media (max-width: 600px) {
   .short-strabe-row { flex-direction: column; gap: 8px; }
   .short-strabe-row .ed-kicker { font-size: 10px; }
+}
+
+/* Franja de empresas dentro del footer (fondo oscuro) */
+.ed-allies.ft-allies { margin: 0 0 clamp(36px, 5vw, 64px); padding-top: clamp(8px, 2vw, 24px); }
+.ft-allies .ed-allies-title { font: 400 clamp(18px, 1.8vw, 26px)/1.25 var(--serif); letter-spacing: 0; text-transform: none; color: var(--white); padding-inline: 20px; margin-bottom: 20px; }
+.ft-allies .ed-allies-title strong { color: var(--gold); }
+.ft-allies .ed-allies-row { border-color: var(--line); }
+.ft-allies .ed-allies-track > * { font-size: clamp(18px, 1.9vw, 28px); }
+.ft-allies .ed-allies-track span { color: var(--white); }
+.ft-allies .ed-allies-track i { color: var(--gold); }
+
+/* Cifras de autoridad (sección Ricardo) */
+.auth-stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0; margin: 26px 0 22px; border-top: 1px solid var(--line, #ffffff1f); }
+.auth-stats > div { padding: 16px 16px 16px 0; border-bottom: 1px solid var(--line, #ffffff1f); }
+.auth-stats > div:nth-child(odd) { border-right: 1px solid var(--line, #ffffff1f); }
+.auth-stats > div:nth-child(even) { padding-left: 18px; }
+.auth-stats dt { font: 800 clamp(28px, 3vw, 42px)/1 var(--display); font-stretch: 72%; letter-spacing: -.02em; color: var(--gold-hi, #e9d7b4); font-variant-numeric: tabular-nums; }
+.auth-stats dd { margin: 6px 0 0; font-size: 13px; line-height: 1.4; color: var(--fg-soft, #bab9b5); }
+.auth-stats small { display: block; font-size: 11px; opacity: .8; }
+
+/* Valor tachado legible sobre la tarjeta clara de la oferta */
+.short-program .ed-price-value s { color: rgba(20, 20, 22, .45); }
+
+/* Indicador "en vivo" de la oferta: punto rojo con pulso + etiqueta */
+.short-program .ed-live-dot { position: relative; background: #e0473f; animation: liveRing 1.6s ease-out infinite; }
+.short-program .ed-live-dot::after { content: ""; position: absolute; inset: 0; border-radius: 50%; background: inherit; animation: liveBlink 1.6s ease-in-out infinite; }
+@keyframes liveRing { 0% { box-shadow: 0 0 0 0 rgba(224, 71, 63, .55); } 80%, 100% { box-shadow: 0 0 0 10px rgba(224, 71, 63, 0); } }
+@keyframes liveBlink { 50% { opacity: .35; } }
+.short-program .ed-live b { line-height: 1.6; }
+.short-program .ed-live b .live-pill { display: inline-block; margin-right: 6px; padding: 3px 8px 2px; border-radius: 999px; background: #e0473f; color: #fff; font: 700 10px/1.2 var(--sans); letter-spacing: .14em; text-transform: uppercase; vertical-align: 2px; }
+.short-program .ed-live b [data-live-when] { display: block; font-size: 13px; color: #0d4c5d; font-weight: 700; }
+@media (prefers-reduced-motion: reduce) {
+  .short-program .ed-live-dot, .short-program .ed-live-dot::after { animation: none; }
 }

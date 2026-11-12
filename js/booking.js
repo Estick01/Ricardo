@@ -1,7 +1,7 @@
 /**
  * AGENDA COMERCIAL (variante B) · formulario por pasos + calendario.
- *   Paso 1 datos → Paso 2 negocio (+ autorización) → Paso 3 horario.
- * El calendario se ve bloqueado (desenfocado) hasta completar los pasos 1 y 2.
+ *   Paso 1 datos (+ autorización) → Paso 2 horario.
+ * El calendario se ve bloqueado (desenfocado) hasta completar el paso 1.
  *   - Con VD_CONFIG.links.calendarUrl de Calendly: se muestra Calendly dentro del panel,
  *     con nombre y correo ya llenos; la reserva queda hecha en Calendly.
  *   - Sin Calendly: calendario propio (VD_CONFIG.booking) para elegir un horario preferido;
@@ -11,8 +11,8 @@
   "use strict";
   const CFG = window.VD_CONFIG;
   const BK = CFG.booking || {};
-  const STEP_NAMES = ["Tus datos", "Tu negocio", "Tu horario"];
-  const FIELDS = { 1: ["name", "phone", "email"], 2: ["company", "industry", "revenue", "ads", "team"] };
+  const STEP_NAMES = ["Tus datos", "Tu horario"];
+  const FIELDS = { 1: ["business", "name", "email", "phone"] };
   const MONTHS = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
   const DAYS = ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"];
   const track = (name, data) => { try { window.VD.track(name, data); } catch (_) { /* sin analítica */ } };
@@ -37,19 +37,19 @@
 
   function validateStep(step, d, form) {
     const missing = (FIELDS[step] || []).some((k) => !d[k]);
+    if (step === 1 && !d.business) return "Elige a qué se dedica tu negocio.";
     if (missing) return "Completa los campos marcados con *.";
     if (step === 1) {
       if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(d.email)) return "Revisa tu correo.";
       if (!/^[0-9 ()-]{6,18}$/.test(d.phone) || d.phone.replace(/\D/g, "").length < 6) return "Revisa tu número de WhatsApp.";
+      if (!form.consent.checked) return "Necesitamos tu autorización para el tratamiento de datos.";
     }
-    if (step === 2 && !form.consent.checked) return "Necesitamos tu autorización para el tratamiento de datos.";
     return "";
   }
 
   function payload(d, slot) {
     return Object.freeze({
-      name: d.name, phone: d.country + " " + d.phone, email: d.email,
-      company: d.company, industry: d.industry, revenue: d.revenue, ads: d.ads, team: d.team,
+      business: d.business, name: d.name, phone: d.country + " " + d.phone, email: d.email,
       slot: slot ? slot.label : "", slot_date: slot ? slot.iso : "", slot_time: slot ? slot.time : "",
       consent: true, consent_at: new Date().toISOString(),
     });
@@ -136,6 +136,8 @@
     u.searchParams.set("hide_gdpr_banner", "1");
     u.searchParams.set("name", d.name);
     u.searchParams.set("email", d.email);
+    // a1 = primera pregunta personalizada del evento en Calendly (crear "¿A qué se dedica tu negocio?")
+    if (d.business) u.searchParams.set("a1", d.business);
     box.textContent = "";
     const frame = document.createElement("iframe");
     frame.src = u.href;
@@ -174,7 +176,7 @@
         pickEl.textContent = "Elige el día y la hora en el calendario. Recibirás la confirmación por correo.";
       } else {
         nextBtn.hidden = false;
-        nextBtn.textContent = n === total ? "Confirmar llamada" : "Continuar";
+        nextBtn.textContent = n === total ? "Confirmar llamada" : "Ver horarios disponibles";
         nextBtn.disabled = n === total && !slot;
       }
       err.textContent = "";
@@ -196,7 +198,7 @@
       nextBtn.textContent = "Enviando…";
       try {
         await send(payload(d, slot));
-        track("lead_submit", { industry: d.industry, revenue: d.revenue });
+        track("lead_submit");
         dlg.querySelector("[data-bk-done-text]").textContent = "Pediste tu llamada para el " + slot.label + ". Te escribimos por WhatsApp para confirmarla.";
         dlg.querySelector(".bk-card").classList.add("is-done");
         dlg.querySelector("[data-bk-done]").hidden = false;

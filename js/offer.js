@@ -18,9 +18,13 @@
     const when = root.querySelector("[data-live-when]");
     if (Number.isFinite(offer.value)) value.textContent = money.format(offer.value);
     if (Number.isFinite(offer.price) && offer.price > 0) {
-      anchor.textContent = money.format(offer.value);
+      const cur = offer.priceCurrency || CFG.currency.code;
+      const plain = (n) => "$" + Number(n).toLocaleString(CFG.currency.locale, { maximumFractionDigits: 0 });
+      anchor.textContent = plain(offer.value) + " " + CFG.currency.code;
       anchor.hidden = false;
-      value.textContent = money.format(offer.price);
+      value.textContent = plain(offer.price) + " " + cur;
+      price.textContent = "Incluye las 11 clases y la asesoría en vivo con Ricardo.";
+      price.hidden = false;
       root.querySelector(".ed-price-label").textContent = "Precio de hoy";
     } else {
       price.textContent = "El precio especial se presenta en la asesoría en vivo y en tu llamada.";

@@ -1,0 +1,85 @@
+/* MARCO DE TELÉFONO estilo iPhone Pro Max (sección Método): marco de titanio, borde fino,
+   isla dinámica y botones laterales. El video llena la pantalla sin franjas negras. */
+.iphone {
+  --phone-w: min(100%, 300px);
+  position: relative;
+  width: var(--phone-w);
+  aspect-ratio: 9 / 19.5;
+  margin: 0 auto;
+  padding: 9px;
+  border-radius: 54px;
+  background:
+    linear-gradient(145deg, #8f8a83 0%, #3b3936 18%, #6d6862 38%, #2c2a28 62%, #7a756e 84%, #403d3a 100%);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, .28),
+    inset 0 0 0 3px #1b1a19,
+    0 30px 60px -28px rgba(20, 20, 22, .55),
+    0 12px 24px -16px rgba(20, 20, 22, .4);
+}
+/* Botones laterales: acción + volumen a la izquierda, encendido y control de cámara a la derecha */
+.iphone::before,
+.iphone::after {
+  content: "";
+  position: absolute;
+  width: 3px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #2c2a28, #7a756e);
+}
+.iphone::before { left: -3px; top: 17%; height: 26%; box-shadow: none;
+  background:
+    linear-gradient(#6d6862, #6d6862) 0 0 / 3px 16% no-repeat,
+    linear-gradient(#6d6862, #6d6862) 0 32% / 3px 28% no-repeat,
+    linear-gradient(#6d6862, #6d6862) 0 100% / 3px 28% no-repeat;
+}
+.iphone::after { right: -3px; top: 25%; height: 13%; }
+.iphone-screen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 46px;
+  background: #000;
+  box-shadow: 0 0 0 3px #050505;
+  isolation: isolate;
+}
+.iphone-screen video { display: block; width: 100%; height: 100%; object-fit: cover; cursor: pointer; }
+.iphone.chat-media .iphone-screen video { object-position: 50% 0; }
+.iphone-island {
+  position: absolute;
+  top: 11px;
+  left: 50%;
+  z-index: 2;
+  width: 31%;
+  height: 26px;
+  transform: translateX(-50%);
+  border-radius: 999px;
+  background: #000;
+  pointer-events: none;
+}
+.iphone-sound {
+  position: absolute;
+  right: 14px;
+  bottom: 18px;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, .45);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  color: #fff;
+  cursor: pointer;
+}
+.iphone-sound svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.iphone-sound .snd-on { display: none; }
+.iphone-sound[aria-pressed="true"] .snd-on { display: inline; }
+.iphone-sound[aria-pressed="true"] .snd-off { display: none; }
+.iphone-sound:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+@media (max-width: 600px) {
+  .iphone { --phone-w: min(100%, 270px); border-radius: 48px; padding: 8px; }
+  .iphone-screen { border-radius: 41px; }
+  .iphone-island { top: 10px; height: 23px; }
+}

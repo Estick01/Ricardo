@@ -1,0 +1,31 @@
+/* AVISO DE COOKIES y botón de preferencias del footer */
+.ck {
+  position: fixed;
+  left: 16px;
+  bottom: 16px;
+  z-index: 90;
+  display: grid;
+  gap: 12px;
+  width: min(420px, calc(100vw - 32px));
+  padding: 18px 20px;
+  border: 1px solid rgba(233, 226, 215, .14);
+  border-radius: 16px;
+  background: #141416;
+  color: #f8f7f4;
+  box-shadow: 0 24px 60px -24px rgba(0, 0, 0, .7);
+  font: 400 13px/1.55 var(--sans);
+}
+.ck[hidden] { display: none; }
+.ck p { margin: 0; color: rgba(248, 247, 244, .82); }
+.ck a { color: #e9d7b4; }
+.ck-actions { display: flex; gap: 10px; }
+.ck-btn { flex: 1; min-height: 42px; border: 1px solid rgba(233, 226, 215, .3); border-radius: 999px; background: transparent; color: #f8f7f4; font: 600 13px/1 var(--sans); cursor: pointer; }
+.ck-btn:hover { border-color: #e9d7b4; }
+.ck-btn-main { border-color: #e9d7b4; background: #e9d7b4; color: #0b0b0d; }
+.ck-btn:focus-visible { outline: 2px solid #e9d7b4; outline-offset: 2px; }
+.ft-prefs { padding: 0; border: 0; background: none; color: var(--muted); font: inherit; text-decoration: underline; cursor: pointer; }
+.ft-prefs[hidden] { display: none; }
+@media (max-width: 600px) {
+  .ck { left: 12px; bottom: 12px; width: calc(100vw - 24px); }
+}
+.footer-links { flex-wrap: wrap; row-gap: 8px; }

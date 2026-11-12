@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Política de cookies · Vende o Desaparece</title>
+  <meta name="description" content="Qué cookies y almacenamiento usa el sitio de Vende o Desaparece y cómo puedes controlarlos." />
+  <meta name="robots" content="noindex, follow" />
+  <meta name="theme-color" content="#0B0B0D" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230B0B0D'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-family='Georgia,serif' font-size='30' fill='%23E9D7B4'%3EVD%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,700..900&family=Inter:wght@400;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/legal.css?v=20261112x" />
+</head>
+<body>
+  <header class="lg-top">
+    <a class="lg-logo" href="../index.html"><span class="mono">VD</span><span class="lg-word"><i>Vende o</i> DESAPARECE</span></a>
+    <a class="lg-back" href="../index.html">← Volver al inicio</a>
+  </header>
+
+  <main class="lg-main">
+    <p class="lg-kicker">Documentos legales</p>
+    <h1>Política de cookies</h1>
+    <p class="lg-date">Última actualización: 12 de noviembre de 2026</p>
+    <ul class="lg-nav">
+      <li><a href="privacidad.html">Privacidad</a></li>
+      <li><a href="cookies.html" aria-current="page">Cookies</a></li>
+      <li><a href="terminos.html">Términos y condiciones</a></li>
+    </ul>
+
+    <p>Las cookies y el almacenamiento local son pequeños archivos que el navegador guarda cuando visitas un sitio. Aquí te contamos cuáles usamos, para qué sirven y cómo controlarlos.</p>
+
+    <h2>1. Necesarias</h2>
+    <p>Hacen que el sitio funcione. No necesitan tu consentimiento y no sirven para identificarte.</p>
+    <div class="lg-wrap"><table class="lg-table">
+      <thead><tr><th>Nombre</th><th>Para qué</th><th>Duración</th></tr></thead>
+      <tbody>
+        <tr><td><code>vd_consent</code></td><td>Recordar si aceptaste o rechazaste las cookies opcionales.</td><td>12 meses</td></tr>
+        <tr><td><code>vd_variant</code></td><td>Mostrarte siempre la misma versión de la página.</td><td>Hasta que borres los datos del navegador</td></tr>
+        <tr><td><code>vd_intro</code></td><td>No repetir la animación de entrada en la misma visita.</td><td>Hasta cerrar la pestaña</td></tr>
+      </tbody>
+    </table></div>
+
+    <h2>2. De terceros al agendar</h2>
+    <p>Cuando abres la agenda, el calendario se carga desde <b>Calendly</b>, que puede usar sus propias cookies para que la reserva funcione. Puedes ver cuáles en la <a href="https://calendly.com/legal/cookie-notice" target="_blank" rel="noopener">política de cookies de Calendly</a>.</p>
+
+    <h2>3. Opcionales: medición y publicidad</h2>
+    <p>Solo se activan si las aceptas en el aviso de cookies. Nos ayudan a saber qué funciona en el sitio y a mostrar nuestros anuncios a personas interesadas.</p>
+    <div class="lg-wrap"><table class="lg-table">
+      <thead><tr><th>Servicio</th><th>Cookies</th><th>Para qué</th><th>Duración</th></tr></thead>
+      <tbody>
+        <tr><td>Google Analytics</td><td><code>_ga</code>, <code>_ga_*</code></td><td>Contar visitas y medir el uso del sitio.</td><td>Hasta 2 años</td></tr>
+        <tr><td>Meta Pixel</td><td><code>_fbp</code>, <code>_fbc</code></td><td>Medir los anuncios de Facebook e Instagram.</td><td>Hasta 3 meses</td></tr>
+      </tbody>
+    </table></div>
+    <p class="lg-box">Si rechazas estas cookies, el sitio y la agenda siguen funcionando igual.</p>
+
+    <h2>4. Cambiar tu elección</h2>
+    <p>Puedes cambiar tu decisión cuando quieras. Al presionar el botón, la próxima vez que abras el sitio volverás a ver el aviso de cookies.</p>
+    <p><button class="lg-btn" type="button" data-reset-consent>Cambiar mis preferencias</button> <span data-reset-msg role="status"></span></p>
+    <p>También puedes borrar o bloquear las cookies desde la configuración de tu navegador.</p>
+
+    <h2>5. Más información</h2>
+    <p>Para saber cómo tratamos tus datos personales, lee nuestra <a href="privacidad.html">política de privacidad</a>.</p>
+  </main>
+
+  <footer class="lg-foot">
+    <a href="privacidad.html">Privacidad</a> · <a href="cookies.html">Cookies</a> · <a href="terminos.html">Términos</a>
+    <p>© 2026 Vende o Desaparece</p>
+  </footer>
+
+  <script>
+    (function () {
+      var btn = document.querySelector("[data-reset-consent]");
+      var msg = document.querySelector("[data-reset-msg]");
+      btn.addEventListener("click", function () {
+        try {
+          localStorage.removeItem("vd_consent");
+          msg.textContent = "Listo. Verás el aviso de cookies al volver al sitio.";
+        } catch (_) {
+          msg.textContent = "Tu navegador bloquea el almacenamiento; borra las cookies desde su configuración.";
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
