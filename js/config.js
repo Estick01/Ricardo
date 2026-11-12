@@ -11,7 +11,7 @@ window.VD_CONFIG = Object.freeze({
 
   links: Object.freeze({
     hotmartCheckoutUrl: "", // ej. checkout oficial de Hotmart
-    calendarUrl: "",        // ej. Calendly / Google Calendar / HubSpot Meetings
+    calendarUrl: "",        // enlace del evento de Calendly (https://calendly.com/usuario/evento): se muestra dentro de la agenda con nombre y correo ya llenos
     formEndpoint: "",       // URL que recibe el formulario por POST (JSON) → CRM / Zapier / Make
     privacyPolicyUrl: "#privacidad",
   }),
@@ -36,6 +36,17 @@ window.VD_CONFIG = Object.freeze({
     value: 1000000,
     price: null,
     liveWhen: "Viernes · 7:00",   // confirmar a. m. / p. m. y zona horaria
+  }),
+
+  /* Agenda propia: solo se usa mientras no haya enlace de Calendly.
+     El visitante elige un horario preferido y el equipo lo confirma por WhatsApp. */
+  booking: Object.freeze({
+    durationMin: null,                 // duración de la llamada; null = no se muestra
+    tzLabel: "Hora de Colombia (GMT-5)",
+    weekdays: [1, 2, 3, 4, 5],         // 0 = domingo … 6 = sábado
+    hours: Object.freeze(["09:00", "10:00", "11:00", "14:00", "15:00", "16:00", "17:00"]), // confirmar con Ricardo
+    minDaysAhead: 1,
+    maxDaysAhead: 21,
   }),
 
   currency: Object.freeze({ code: "COP", locale: "es-CO" }),

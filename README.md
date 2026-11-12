@@ -102,3 +102,4 @@ Esta revisión sustituye la estructura y escena de video descritas arriba.
 - "11 pasos. Un sistema.": lista desde `VD_CONTENT.modules` con gráfica de partículas que cambia de forma por fase (`js/steps.js`, `css/steps.css`). Las descripciones de cada módulo son provisionales: confirmarlas con Ricardo.
 - Strabe: ventas de Shopify en una fila a todo el ancho, sin enlace al reporte. Caso del Dr. Felipe sin la nota de pagos pendientes.
 - Cierre con `assets/gallery/final.webp` a todo el ancho (capa desenfocada + foto nítida). Si llega una versión de mayor resolución, reemplazar ese archivo.
+- Agenda comercial (`js/booking.js`, `css/booking.css`): formulario en 3 pasos + calendario bloqueado hasta completarlo. Con `links.calendarUrl` de Calendly se incrusta Calendly con nombre y correo; sin él, calendario propio (`VD_CONFIG.booking`) y envío a `formEndpoint`. Confirmar horas y duración con Ricardo.
